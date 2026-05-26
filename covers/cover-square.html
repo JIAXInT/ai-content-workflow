@@ -7,15 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* 莫兰迪色系 */
     --blue: #6B8FAD;
-    --blue-light: #D4E1E9;
     --orange: #C4A882;
-    --orange-light: #E8DDD0;
     --bg: #F5F0EB;
-    --bg-warm: #EDE8E2;
-    --dark: #3D3D3D;
-    --gray: #8A8580;
+    --dark: #1A1A1A;
+    --gray: #6B6560;
     --light: #E8E3DD;
   }
 
@@ -38,14 +34,12 @@
     background: var(--bg);
   }
 
-  /* 背景装饰层 */
   .bg-deco {
     position: absolute;
     inset: 0;
     pointer-events: none;
   }
 
-  /* 右上角圆 */
   .circle-1 {
     position: absolute;
     top: -80px;
@@ -56,7 +50,6 @@
     border-radius: 50%;
   }
 
-  /* 左下角圆 */
   .circle-2 {
     position: absolute;
     bottom: -70px;
@@ -67,7 +60,6 @@
     border-radius: 50%;
   }
 
-  /* 网格点阵 */
   .dots {
     position: absolute;
     top: 25px;
@@ -84,7 +76,6 @@
     border-radius: 50%;
   }
 
-  /* 十字准星 */
   .crosshair {
     position: absolute;
     top: 40px;
@@ -113,29 +104,6 @@
     background: rgba(107, 143, 173, 0.25);
   }
 
-  /* 斜线 */
-  .diagonal {
-    position: absolute;
-    bottom: 70px;
-    right: 60px;
-    width: 50px;
-    height: 1px;
-    background: linear-gradient(to right, rgba(196, 168, 130, 0.3), transparent);
-    transform: rotate(-30deg);
-  }
-
-  /* 小方块 */
-  .square {
-    position: absolute;
-    bottom: 90px;
-    right: 130px;
-    width: 10px;
-    height: 10px;
-    border: 1px solid rgba(107, 143, 173, 0.15);
-    transform: rotate(45deg);
-  }
-
-  /* 渐变光晕 */
   .glow {
     position: absolute;
     top: 40%;
@@ -146,7 +114,6 @@
     border-radius: 50%;
   }
 
-  /* 内容容器 */
   .content {
     position: absolute;
     inset: 0;
@@ -156,7 +123,6 @@
     z-index: 2;
   }
 
-  /* 顶部 */
   .header {
     display: flex;
     align-items: center;
@@ -197,7 +163,6 @@
     color: var(--gray);
   }
 
-  /* 主内容 */
   .main {
     display: flex;
     flex-direction: column;
@@ -231,7 +196,7 @@
   }
 
   .title {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 900;
     color: #1A1A1A;
     line-height: 1.2;
@@ -260,17 +225,6 @@
     font-weight: 700;
   }
 
-  .subtitle .sep {
-    display: inline-block;
-    width: 3px;
-    height: 3px;
-    background: var(--orange);
-    border-radius: 50%;
-    vertical-align: middle;
-    margin: 0 8px;
-  }
-
-  /* 底部 */
   .footer {
     display: flex;
     align-items: center;
@@ -297,7 +251,6 @@
     letter-spacing: 1.5px;
   }
 
-  /* 底部装饰条 */
   .bottom-bar {
     position: absolute;
     bottom: 0;
@@ -312,7 +265,6 @@
 <body>
 
 <div class="cover">
-  <!-- 背景装饰 -->
   <div class="bg-deco">
     <div class="circle-1"></div>
     <div class="circle-2"></div>
@@ -324,11 +276,8 @@
       <span></span><span></span><span></span><span></span>
     </div>
     <div class="crosshair"></div>
-    <div class="diagonal"></div>
-    <div class="square"></div>
   </div>
 
-  <!-- 内容 -->
   <div class="content">
     <div class="header">
       <div class="brand">
@@ -341,14 +290,15 @@
     <div class="main">
       <div class="tag">
         <div class="tag-dot"></div>
-        <div class="tag-text">AI 热点</div>
+        <div class="tag-text">技巧与观点</div>
       </div>
       <h1 class="title">
-        GPT-5.6 曝光<br>
-        <span class="blue">150万</span> token
+        Claude Code<br>
+        <span class="blue">自动模式</span><br>
+        多任务并行技巧
       </h1>
       <p class="subtitle">
-        OpenAI 泄露<span class="sep"></span><strong>下月发布</strong>
+        Boris Cherny 分享高效秘诀
       </p>
     </div>
 
