@@ -1,7 +1,7 @@
 # AI 内容创作工作流
 
 ## 项目概述
-这是一个 AI 内容账号的每日创作工作流，覆盖公众号、小红书、抖音三端。
+这是一个 AI 内容账号的每日创作工作流，覆盖公众号、小红书、抖音三端，支持自动保存到飞书文档。
 
 ## 每日工作流
 
@@ -24,7 +24,14 @@
 3. 跑四层自检体系（L1 硬性规则 → L2 风格一致性 → L3 内容质量 → L4 活人感）
 4. 输出质检报告
 
-### 第四步：多端适配（可选）
+### 第四步：保存到飞书文档
+文章生成后，自动保存到飞书文档：
+1. 保存文章到本地：`articles/YYYY-MM-DD_标题.md`
+2. 生成封面图：运行 `python scripts/screenshot.py`
+3. 保存到飞书：运行 `python scripts/save_to_feishu.py "标题" "文章路径" "封面图路径"`
+4. 输出飞书文档链接
+
+### 第五步：多端适配（可选）
 - 公众号：完整长文
 - 小红书：提炼 3-5 个核心观点，配图文案
 - 抖音：口播脚本或短视频文案
@@ -33,3 +40,27 @@
 - `今日热点` / `AI 日报` → 拉取最新热点
 - `写文章` → 基于已选热点生成公众号文章
 - `质检` → 对已写文章跑四层自检
+- `保存到飞书` → 将文章保存到飞书文档
+
+## 飞书集成
+
+### 前置条件
+1. 安装飞书 CLI：`npm install -g @larksuite/cli`
+2. 添加 skills：`npx skills add larksuite/cli -g -y`
+3. 配置认证：`npx @larksuite/cli config init --new`
+4. 登录授权：`npx @larksuite/cli auth login --recommend`
+5. 启用权限：在飞书开发者后台启用 `docs:document.media:upload` 权限
+
+### 使用方法
+```bash
+# 保存文章到飞书
+python scripts/save_to_feishu.py "文章标题" "articles/YYYY-MM-DD_标题.md" "covers/cover-main.png"
+
+# 测试飞书功能
+python scripts/test_feishu_save.py
+```
+
+### 常见问题
+- **认证过期**：运行 `npx @larksuite/cli auth login --recommend` 重新登录
+- **权限不足**：在飞书开发者后台启用相应权限
+- **编码问题**：确保脚本使用 `encoding='utf-8'` 参数
