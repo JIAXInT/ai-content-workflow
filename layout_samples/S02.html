@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S02 Comparison</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;padding:60px 80px;display:flex;flex-direction:column}
+    .header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px}
+    .h-xl{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:300;font-size:56px;margin:0;color:var(--ink)}
+    .t-cat{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1}
+    .signal{padding:40px;display:flex;flex-direction:column}
+    .signal-a{background:var(--ink);color:var(--paper)}
+    .signal-b{background:var(--grey-1);border:2px solid var(--ink)}
+    .signal-label{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 24px}
+    .signal-a .signal-label{color:var(--accent)}
+    .signal-b .signal-label{color:var(--grey-3)}
+    .signal-title{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:600;font-size:48px;margin:0 0 24px}
+    .signal-points{display:flex;flex-direction:column;gap:16px;margin-top:auto}
+    .point{font-family:"Inter","Noto Sans SC",sans-serif;font-size:20px}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1 class="h-xl">M3 vs Opus 4.7</h1>
+      <span class="t-cat">Comparison</span>
+    </div>
+    <div class="compare">
+      <div class="signal signal-a">
+        <p class="signal-label">MiMo M3</p>
+        <h3 class="signal-title">开源</h3>
+        <div class="signal-points">
+          <span class="point">✓ SWE-Bench 59.0%</span>
+          <span class="point">✓ 100万 Token</span>
+          <span class="point">✓ $0.12/M Tokens</span>
+        </div>
+      </div>
+      <div class="signal signal-b">
+        <p class="signal-label">Opus 4.7</p>
+        <h3 class="signal-title">闭源</h3>
+        <div class="signal-points">
+          <span class="point">✓ SWE-Bench 62.1%</span>
+          <span class="point">✓ 20万 Token</span>
+          <span class="point">✓ $15/M Tokens</span>
+        </div>
+      </div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S02 · Comparison</span></div>
+  </div>
+</body>
+</html>

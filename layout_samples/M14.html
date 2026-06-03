@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M14 Pipeline</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1080px;height:1440px;background:var(--paper);position:relative;overflow:hidden;padding:96px 88px;display:flex;flex-direction:column}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:48px;line-height:1.15;margin:0 0 48px;color:var(--ink)}
+    .pipeline{display:flex;flex-direction:column;gap:0;flex:1}
+    .step{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:baseline;padding:32px 0;border-bottom:1px solid var(--line)}
+    .step:last-child{border-bottom:0}
+    .step-nb{font-family:"IBM Plex Mono",monospace;font-size:32px;color:var(--muted)}
+    .step-title{font-family:"Noto Serif SC",serif;font-weight:500;font-size:36px;color:var(--ink);margin:0 0 8px}
+    .step-desc{font-family:"Noto Serif SC",serif;font-size:20px;color:var(--muted);margin:0}
+    .issue-strip{position:absolute;bottom:56px;left:88px;right:88px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <p class="kicker">Pipeline</p>
+    <h1 class="h-xl">M3的<br>工作流程</h1>
+    <div class="pipeline">
+      <div class="step"><span class="step-nb">01</span><div><h3 class="step-title">理解需求</h3><p class="step-desc">分析代码库结构和issue描述</p></div></div>
+      <div class="step"><span class="step-nb">02</span><div><h3 class="step-title">定位问题</h3><p class="step-desc">在复杂代码中找到关键位置</p></div></div>
+      <div class="step"><span class="step-nb">03</span><div><h3 class="step-title">生成方案</h3><p class="step-desc">编写修复代码和测试用例</p></div></div>
+      <div class="step"><span class="step-nb">04</span><div><h3 class="step-title">验证结果</h3><p class="step-desc">运行测试确保修改正确</p></div></div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>M14 · Pipeline</span></div>
+  </div>
+</body>
+</html>

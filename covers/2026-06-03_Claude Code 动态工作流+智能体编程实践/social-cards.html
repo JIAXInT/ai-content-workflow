@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>Claude Code 更新了两个炸裂功能，我看完沉默了 · Social Card Set</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* =========================================================
+       Swiss International — Social Card Template
+       支持通过 JSON 数据动态填充内容
+       ========================================================= */
+
+    /* ---------- 1. Accent palettes ---------- */
+    :root,
+    [data-accent="ikb"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #002FA7;
+      --accent-on: #ffffff;
+    }
+    [data-accent="lemon-yellow"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #FFD500;
+      --accent-on: #0a0a0a;
+    }
+    [data-accent="lemon-green"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #C5E803;
+      --accent-on: #0a0a0a;
+    }
+    [data-accent="safety-orange"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #FF6B35;
+      --accent-on: #ffffff;
+    }
+
+    /* ---------- 2. Typography stack ---------- */
+    :root {
+      --sans:    "Inter", "Helvetica Neue", Helvetica, "Noto Sans SC",
+                 -apple-system, "PingFang SC", "Microsoft YaHei UI", sans-serif;
+      --sans-zh: "Noto Sans SC", -apple-system, "PingFang SC",
+                 "Microsoft YaHei UI", "Inter", sans-serif;
+      --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace;
+    }
+
+    /* ---------- 3. Spacing tokens ---------- */
+    :root {
+      --sp-3:   8px;
+      --sp-4:  12px;
+      --sp-5:  16px;
+      --sp-6:  24px;
+      --sp-7:  32px;
+      --sp-8:  40px;
+      --sp-9:  48px;
+      --sp-10: 64px;
+      --sp-11: 80px;
+      --sp-12: 96px;
+      --sp-13:160px;
+    }
+
+    /* ---------- 4. Reset & sheet ---------- */
+    *,*::before,*::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      font-family: var(--sans);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 64px 32px;
+    }
+    .sheet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+
+    /* ---------- 5. Poster boards ---------- */
+    .poster {
+      position: relative;
+      background: var(--paper);
+      color: var(--ink);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .poster.xhs    { width: 1080px; height: 1440px; }
+    .poster.square { width: 1080px; height: 1080px; }
+    .poster.wide   { width: 2100px; height:  900px; }
+    .poster figure { margin: 0; }
+
+    .poster.xhs    .content { padding: var(--sp-12) var(--sp-11); }
+    .poster.square .content { padding: var(--sp-11) var(--sp-11); }
+    .poster.wide   .content { padding: var(--sp-11) var(--sp-13); }
+    .content { position: relative; width: 100%; height: 100%; z-index: 2; }
+
+    /* ---------- 6. Decorative layers ---------- */
+    .dot-mat {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .08;
+      background-image: radial-gradient(var(--ink) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    /* ---------- 7. Typography roles ---------- */
+    .h-statement {
+      font-family: var(--sans-zh);
+      font-weight: 200;
+      font-size: 124px;
+      line-height: 1.05;
+      letter-spacing: -.015em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .h-xl {
+      font-family: var(--sans-zh);
+      font-weight: 300;
+      font-size: 96px;
+      line-height: 1.08;
+      letter-spacing: -.01em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .h-lg {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 56px;
+      line-height: 1.18;
+      margin: 0;
+      color: var(--ink);
+    }
+    .h-md {
+      font-family: var(--sans-zh);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.22;
+      margin: 0;
+      color: var(--ink);
+    }
+    .t-cat {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0;
+    }
+    .t-meta {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin: 0;
+    }
+    .t-body {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 0;
+    }
+    .t-body-sm {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--grey-3);
+      margin: 0;
+    }
+    .num {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 112px;
+      line-height: .96;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+    .num-lg {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 144px;
+      line-height: .92;
+      letter-spacing: -.03em;
+      margin: 0;
+    }
+    .lbl {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin: 0;
+    }
+
+    /* ---------- 8. Layout helpers ---------- */
+    .stack { display: flex; flex-direction: column; }
+    .row { display: flex; align-items: center; }
+    .row-between { display: flex; align-items: center; justify-content: space-between; }
+    .gap-3 { gap: var(--sp-3); }
+    .gap-4 { gap: var(--sp-4); }
+    .gap-5 { gap: var(--sp-5); }
+    .gap-6 { gap: var(--sp-6); }
+    .gap-7 { gap: var(--sp-7); }
+    .gap-8 { gap: var(--sp-8); }
+    .gap-9 { gap: var(--sp-9); }
+    .gap-10 { gap: var(--sp-10); }
+    .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-7); }
+    .col-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-7); }
+    .col-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+
+    /* ---------- 9. Chrome ---------- */
+    .chrome-min {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--sp-5);
+      border-bottom: 1px solid var(--grey-2);
+    }
+
+    /* ---------- 10. Accent block ---------- */
+    .accent-block {
+      background: var(--accent);
+      color: var(--accent-on);
+      padding: var(--sp-7);
+    }
+
+    /* ---------- 11. Stat block ---------- */
+    .stat-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+    .stat-block .num {
+      font-size: 56px;
+      color: var(--accent);
+    }
+
+    /* ---------- 12. Checklist rows ---------- */
+    .check-row {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: var(--sp-5);
+      align-items: baseline;
+      padding: var(--sp-5) 0;
+      border-bottom: 1px solid var(--grey-2);
+    }
+    .check-row .idx {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--accent);
+    }
+    .check-row .item {
+      font-family: var(--sans-zh);
+      font-weight: 500;
+      font-size: 24px;
+    }
+    .check-row .note {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--grey-3);
+      text-align: right;
+    }
+
+    /* ---------- 13. Issue strip ---------- */
+    .issue-strip {
+      position: absolute;
+      bottom: var(--sp-11);
+      left: var(--sp-11);
+      right: var(--sp-11);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--grey-3);
+      border-top: 1px solid var(--grey-2);
+      padding-top: var(--sp-4);
+      z-index: 3;
+    }
+
+    /* ---------- 14. Hairline rule ---------- */
+    .rule-h {
+      width: 100%;
+      height: 1px;
+      background: var(--grey-2);
+      margin: var(--sp-5) 0;
+    }
+
+    /* ---------- 15. Tag list ---------- */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 6px 12px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+    }
+
+    /* ---------- 16. KPI Tower ---------- */
+    .kpi-tower-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-7);
+    }
+    .tower-col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+    .bar-tower {
+      width: 100%;
+      height: 200px;
+      background: var(--grey-1);
+      position: relative;
+    }
+    .bar-tower::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: var(--h, 50%);
+      background: var(--accent);
+    }
+
+    /* ---------- 17. Pair preview ---------- */
+    .pair-preview {
+      display: flex;
+      gap: 32px;
+      align-items: flex-end;
+    }
+  </style>
+
+    <script>
+      // 注入的实际数据
+      var CARD_DATA = {
+  "title": "Claude Code 更新了两个炸裂功能，我看完沉默了",
+  "subtitle": "昨天晚上我照例刷 AI 圈的动态，突然看到 Claude Code 官方连发两篇博客。",
+  "category": "AI · 产品发布/更新",
+  "date": "2026-06-03",
+  "author": "AI创享派",
+  "accent": "ikb",
+  "wechat": {
+    "headline": "Claude Code 更新了两个炸裂功能 我看完沉默了",
+    "subline": "昨天晚上我照例刷 AI 圈的动态，突然看到 Claude Code 官方连发两篇",
+    "stats": [
+      {
+        "num": "AI",
+        "label": "前沿"
+      }
+    ]
+  },
+  "xhs": [
+    {
+      "type": "cover",
+      "headline": "Claude Code 更新了两个炸裂功",
+      "subline": "昨天晚上我照例刷 AI 圈的动态，突然看到 Claude C",
+      "tags": [
+        "Claude",
+        "AI",
+        "推理"
+      ]
+    },
+    {
+      "type": "summary",
+      "title": "三个关键结论",
+      "conclusions": [
+        {
+          "num": "01",
+          "title": "技术驱动",
+          "desc": "Claude Code 更新了两个炸裂功能，我看完沉默了"
+        },
+        {
+          "num": "02",
+          "title": "行业影响",
+          "desc": "昨天晚上我照例刷 AI 圈的动态，突然看到 Claude Code 官方连发两篇博客。"
+        },
+        {
+          "num": "03",
+          "title": "未来趋势",
+          "desc": "持续关注 AI 发展"
+        }
+      ],
+      "cta": "关注 AI创享派，获取最新 AI 资讯"
+    }
+  ]
+};
+    </script>
+    
+</head>
+<body>
+  <main class="sheet" id="cards-container">
+    <!-- 卡片内容将由 JavaScript 动态生成 -->
+  </main>
+
+  <script>
+    // ============================================================
+    // 数据注入接口
+    // ============================================================
+    // 通过 URL 参数或直接修改 CARD_DATA 来注入数据
+    // 示例: ?data=base64encodedJSON
+
+    // 默认数据结构
+;
+
+    // 从 URL 参数加载数据
+    function loadDataFromUrl() {
+      var params = new URLSearchParams(window.location.search);
+      var dataParam = params.get('data');
+      if (dataParam) {
+        try {
+          var decoded = decodeURIComponent(atob(dataParam));
+          var parsed = JSON.parse(decoded);
+          CARD_DATA = Object.assign(CARD_DATA, parsed);
+        } catch (e) {
+          console.warn('Failed to parse data parameter:', e);
+        }
+      }
+    }
+
+    // ============================================================
+    // 卡片渲染函数
+    // ============================================================
+
+    function renderWechatWide(data) {
+      var statsHtml = (data.wechat.stats || []).map(function(s) {
+        return '<div class="stat-block"><p class="num">' + s.num + '</p><p class="lbl">' + s.label + '</p></div>';
+      }).join('<div class="rule-h"></div>');
+
+      return '<section class="poster wide" id="wechat-21x9">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">' + data.category + '</span>' +
+            '<span class="t-meta">' + data.date + '</span>' +
+          '</div>' +
+          '<div style="display:grid; grid-template-columns:1.2fr 1fr; gap:var(--sp-10); flex:1; align-items:center;">' +
+            '<div class="stack gap-6">' +
+              '<h1 class="h-statement">' + data.wechat.headline + '</h1>' +
+              '<p class="t-body" style="color:var(--grey-3)">' + data.wechat.subline + '</p>' +
+            '</div>' +
+            '<div class="stack gap-8">' + statsHtml + '</div>' +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>Cover</span>' +
+            '<span>' + data.date + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    function renderWechatSquare(data) {
+      var statsHtml = (data.wechat.stats || []).slice(0, 2).map(function(s) {
+        return '<div class="stat-block"><p class="num" style="font-size:48px;">' + s.num + '</p><p class="lbl">' + s.label + '</p></div>';
+      }).join('');
+
+      return '<section class="poster square" id="wechat-1x1">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack" style="justify-content:space-between;">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">' + data.category + '</span>' +
+            '<span class="t-meta">' + data.date + '</span>' +
+          '</div>' +
+          '<div class="stack gap-7" style="flex:1; justify-content:center;">' +
+            '<div class="accent-block" style="padding:var(--sp-8) var(--sp-7);">' +
+              '<h1 class="h-lg" style="color:var(--accent-on);">' + data.wechat.headline + '</h1>' +
+            '</div>' +
+            '<div class="col-2" style="margin-top:var(--sp-6);">' + statsHtml + '</div>' +
+            '<p class="t-body-sm" style="margin-top:var(--sp-5);">' + data.wechat.subline + '</p>' +
+          '</div>' +
+          '<div class="issue-strip" style="left:var(--sp-11); right:var(--sp-11);">' +
+            '<span>' + data.author + '</span>' +
+            '<span>Square</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    function renderXhsCover(page, index, total, data) {
+      var tagsHtml = (page.tags || []).map(function(t) {
+        return '<span class="tag">' + t + '</span>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack" style="justify-content:center;">' +
+          '<div class="chrome-min" style="position:absolute; top:0; left:0; right:0; padding:var(--sp-11) var(--sp-11) var(--sp-5);">' +
+            '<span class="t-cat">' + data.category + '</span>' +
+            '<span class="t-meta">' + data.date + '</span>' +
+          '</div>' +
+          '<div class="stack gap-8" style="margin-top:var(--sp-8);">' +
+            '<h1 class="h-statement">' + page.headline + '</h1>' +
+            '<p class="t-body" style="color:var(--grey-3)">' + page.subline + '</p>' +
+            '<div class="tag-list" style="margin-top:var(--sp-5);">' + tagsHtml + '</div>' +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>封面</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    function renderXhsData(page, index, total, data) {
+      var statsHtml = (page.stats || []).map(function(s) {
+        return '<div class="tower-col">' +
+          '<p class="num" style="color:var(--accent); font-size:48px;">' + s.num + '</p>' +
+          '<p class="lbl">' + s.label + '</p>' +
+          '<div class="bar-tower" style="--h:' + s.height + ';"></div>' +
+        '</div>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Data · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="kpi-tower-row" style="flex:1; align-items:end;">' + statsHtml + '</div>' +
+          '<p class="t-body-sm" style="margin-top:var(--sp-6);">' + (page.note || '') + '</p>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    function renderXhsCompare(page, index, total, data) {
+      var leftFeatures = (page.left.features || []).map(function(f) {
+        return '<p class="t-body-sm">✓ ' + f + '</p>';
+      }).join('');
+      var rightFeatures = (page.right.features || []).map(function(f) {
+        return '<p class="t-body-sm" style="color:var(--grey-2);">✓ ' + f + '</p>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Compare · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="col-2" style="flex:1;">' +
+            '<div class="stack gap-6" style="padding:var(--sp-7); border:2px solid var(--ink);">' +
+              '<p class="t-cat">' + page.left.cat + '</p>' +
+              '<h3 class="h-md">' + page.left.name + '</h3>' +
+              '<div class="rule-h"></div>' +
+              '<div class="stack gap-4">' + leftFeatures + '</div>' +
+            '</div>' +
+            '<div class="stack gap-6" style="padding:var(--sp-7); background:var(--ink); color:var(--paper);">' +
+              '<p class="t-cat" style="color:var(--accent);">' + page.right.cat + '</p>' +
+              '<h3 class="h-md">' + page.right.name + '</h3>' +
+              '<div class="rule-h" style="background:var(--grey-3);"></div>' +
+              '<div class="stack gap-4">' + rightFeatures + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<p class="t-body-sm">' + (page.note || '') + '</p>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    function renderXhsChecklist(page, index, total, data) {
+      var itemsHtml = (page.items || []).map(function(item, i) {
+        var isLast = i === page.items.length - 1;
+        return '<div class="check-row" style="' + (isLast ? 'border-bottom:none;' : '') + '">' +
+          '<span class="idx">' + String(i + 1).padStart(2, '0') + '</span>' +
+          '<span class="item">' + item.item + '</span>' +
+          '<span class="note">' + item.note + '</span>' +
+        '</div>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Impact · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="stack gap-5" style="flex:1;">' + itemsHtml + '</div>' +
+          (page.highlight ? '<div class="accent-block" style="padding:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:20px; margin:0; color:var(--accent-on);">' + page.highlight + '</p></div>' : '') +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    function renderXhsSummary(page, index, total, data) {
+      var conclusionsHtml = (page.conclusions || []).map(function(c, i) {
+        var isLast = i === page.conclusions.length - 1;
+        return '<div class="stack gap-4">' +
+          '<div class="row gap-5">' +
+            '<span class="num" style="font-size:48px; color:var(--accent);">' + c.num + '</span>' +
+            '<div>' +
+              '<h3 class="h-md">' + c.title + '</h3>' +
+              '<p class="t-body-sm">' + c.desc + '</p>' +
+            '</div>' +
+          '</div>' +
+        '</div>' + (isLast ? '' : '<div class="rule-h"></div>');
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Summary · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="stack gap-9" style="flex:1; justify-content:center;">' + conclusionsHtml + '</div>' +
+          (page.cta ? '<div class="accent-block" style="padding:var(--sp-6); margin-top:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:20px; margin:0; color:var(--accent-on);">' + page.cta + '</p></div>' : '') +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // ============================================================
+    // 主渲染函数
+    // ============================================================
+    function renderAllCards(data) {
+      var container = document.getElementById('cards-container');
+      var html = '';
+
+      // 渲染公众号封面
+      html += renderWechatWide(data);
+      html += renderWechatSquare(data);
+
+      // 渲染小红书轮播图
+      var xhsPages = data.xhs || [];
+      var total = xhsPages.length;
+
+      xhsPages.forEach(function(page, index) {
+        switch (page.type) {
+          case 'cover':
+            html += renderXhsCover(page, index, total, data);
+            break;
+          case 'data':
+            html += renderXhsData(page, index, total, data);
+            break;
+          case 'compare':
+            html += renderXhsCompare(page, index, total, data);
+            break;
+          case 'checklist':
+            html += renderXhsChecklist(page, index, total, data);
+            break;
+          case 'summary':
+            html += renderXhsSummary(page, index, total, data);
+            break;
+          default:
+            html += renderXhsCover(page, index, total, data);
+        }
+      });
+
+      container.innerHTML = html;
+
+      // 初始化 Lucide 图标
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
+    // ============================================================
+    // 初始化
+    // ============================================================
+    loadDataFromUrl();
+    renderAllCards(CARD_DATA);
+  </script>
+</body>
+</html>

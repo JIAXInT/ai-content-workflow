@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M05 Checklist</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22);--accent:#111111}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1080px;height:1440px;background:var(--paper);position:relative;overflow:hidden;padding:96px 88px;display:flex;flex-direction:column}
+    .grain{position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px);background-size:3px 3px}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:56px;line-height:1.1;margin:0 0 48px;color:var(--ink)}
+    .checklist{display:flex;flex-direction:column;gap:0;flex:1}
+    .check-row{display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
+    .check-row:last-child{border-bottom:0}
+    .check-nb{font-family:"IBM Plex Mono",monospace;font-size:24px;color:var(--accent)}
+    .check-item{font-family:"Noto Serif SC",serif;font-weight:500;font-size:28px;color:var(--ink)}
+    .check-result{font-family:"IBM Plex Mono",monospace;font-size:16px;color:var(--muted);text-align:right}
+    .issue-strip{position:absolute;bottom:56px;left:88px;right:88px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="grain"></div>
+    <p class="kicker">Checklist</p>
+    <h1 class="h-xl">选模型前<br>先看这5点</h1>
+    <div class="checklist">
+      <div class="check-row"><span class="check-nb">01</span><span class="check-item">编程能力</span><span class="check-result">SWE-Bench Pro</span></div>
+      <div class="check-row"><span class="check-nb">02</span><span class="check-item">上下文长度</span><span class="check-result">Token 窗口</span></div>
+      <div class="check-row"><span class="check-nb">03</span><span class="check-item">多模态支持</span><span class="check-result">图像/视频</span></div>
+      <div class="check-row"><span class="check-nb">04</span><span class="check-item">价格</span><span class="check-result">每百万 Token</span></div>
+      <div class="check-row"><span class="check-nb">05</span><span class="check-item">开源程度</span><span class="check-result">权重/代码/数据</span></div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>M05 · Checklist</span></div>
+  </div>
+</body>
+</html>

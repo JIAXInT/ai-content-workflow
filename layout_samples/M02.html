@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M02 Field Note</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr}
+    .photo{background:var(--ink);position:relative}
+    .photo-label{position:absolute;bottom:40px;left:40px;font-family:"IBM Plex Mono",monospace;font-size:14px;color:rgba(255,255,255,.7);letter-spacing:.12em;text-transform:uppercase}
+    .content{padding:80px;display:flex;flex-direction:column;justify-content:center}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:56px;line-height:1.1;margin:0 0 32px;color:var(--ink)}
+    .body{font-family:"Noto Serif SC",serif;font-size:24px;line-height:1.6;color:var(--ink);margin:0 0 48px}
+    .caption{font-family:"IBM Plex Mono",monospace;font-size:18px;color:var(--muted);margin-top:auto;padding-top:32px;border-top:1px solid var(--line)}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="photo"><span class="photo-label">Field Note · 现场记录</span></div>
+    <div class="content">
+      <p class="kicker">Observation</p>
+      <h1 class="h-xl">在咖啡馆<br>看到有人用<br>Claude Code</h1>
+      <p class="body">他一边喝咖啡，一边看着屏幕上自动生成的代码，嘴角微微上扬。那种表情我太熟悉了，是第一次感受到AI编程魔力时的惊喜。</p>
+      <p class="caption">M02 · Field Note Photo</p>
+    </div>
+  </div>
+</body>
+</html>

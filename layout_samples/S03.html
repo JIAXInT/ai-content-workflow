@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S03 Data Layer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+    .left{padding:80px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--grey-2)}
+    .right{padding:80px;display:flex;flex-direction:column;justify-content:center}
+    .chrome-min{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--grey-2);margin-bottom:32px}
+    .t-cat{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+    .t-meta{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-3);margin:0}
+    .file-card{background:var(--grey-1);padding:40px}
+    .file-type{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:48px;color:var(--accent);margin:0 0 24px}
+    .file-name{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:600;font-size:28px;color:var(--ink);margin:0 0 32px}
+    .file-props{display:flex;flex-direction:column;gap:16px}
+    .prop{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:16px}
+    .prop-key{color:var(--grey-3)}
+    .prop-val{color:var(--ink)}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <div class="chrome-min">
+        <span class="t-cat">S03 · Data Layer</span>
+        <span class="t-meta">Model Card</span>
+      </div>
+      <div class="file-card">
+        <p class="file-type">.model</p>
+        <p class="file-name">MiniMax-M3</p>
+        <div class="file-props">
+          <div class="prop"><span class="prop-key">Parameters</span><span class="prop-val">12B MoE</span></div>
+          <div class="prop"><span class="prop-key">Context</span><span class="prop-val">1,000,000</span></div>
+          <div class="prop"><span class="prop-key">License</span><span class="prop-val">Apache 2.0</span></div>
+          <div class="prop"><span class="prop-key">Modalities</span><span class="prop-val">Text, Image, Video</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <p class="t-cat">Capabilities</p>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:24px">
+        <div style="font-family:'Inter',sans-serif;font-size:24px">Coding: <strong>59.0%</strong></div>
+        <div style="font-family:'Inter',sans-serif;font-size:24px">Terminal: <strong>66.0%</strong></div>
+        <div style="font-family:'Inter',sans-serif;font-size:24px">Multimodal: <strong>Yes</strong></div>
+      </div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S03 · Data Layer</span></div>
+  </div>
+</body>
+</html>

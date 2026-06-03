@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S12 Matrix</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;padding:60px 80px;display:flex;flex-direction:column}
+    .header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px}
+    .h-xl{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:300;font-size:48px;margin:0;color:var(--ink)}
+    .t-cat{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    .matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;flex:1;margin-bottom:32px}
+    .cell{background:var(--grey-1);padding:24px;display:flex;flex-direction:column;gap:8px}
+    .cell-nb{font-family:"IBM Plex Mono",monospace;font-size:16px;color:var(--grey-3)}
+    .cell-title{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:500;font-size:22px;color:var(--ink)}
+    .cell.is-accent{background:var(--accent);color:var(--accent-on)}
+    .cell.is-accent .cell-nb,.cell.is-accent .cell-title{color:var(--accent-on)}
+    .hero-stat{display:flex;justify-content:space-between;align-items:end;padding-top:32px;border-top:1px solid var(--grey-2)}
+    .hero-kick{font-family:"IBM Plex Mono",monospace;font-size:16px;color:var(--grey-3);margin:0 0 8px}
+    .hero-text{font-family:"Inter","Noto Sans SC",sans-serif;font-size:24px;color:var(--ink);margin:0}
+    .hero-num{font-family:"Inter",sans-serif;font-weight:200;font-size:168px;line-height:1;color:var(--accent)}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1 class="h-xl">M3 能力矩阵</h1>
+      <span class="t-cat">Matrix</span>
+    </div>
+    <div class="matrix">
+      <div class="cell"><span class="cell-nb">01</span><span class="cell-title">编程</span></div>
+      <div class="cell is-accent"><span class="cell-nb">02</span><span class="cell-title">推理</span></div>
+      <div class="cell"><span class="cell-nb">03</span><span class="cell-title">多模态</span></div>
+      <div class="cell"><span class="cell-nb">04</span><span class="cell-title">Agent</span></div>
+      <div class="cell"><span class="cell-nb">05</span><span class="cell-title">长上下文</span></div>
+      <div class="cell"><span class="cell-nb">06</span><span class="cell-title">工具使用</span></div>
+      <div class="cell"><span class="cell-nb">07</span><span class="cell-title">代码理解</span></div>
+      <div class="cell"><span class="cell-nb">08</span><span class="cell-title">CUDA优化</span></div>
+    </div>
+    <div class="hero-stat">
+      <div>
+        <p class="hero-kick">Total Coverage</p>
+        <p class="hero-text">覆盖 8 大核心能力领域</p>
+      </div>
+      <span class="hero-num">8</span>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S12 · Matrix</span></div>
+  </div>
+</body>
+</html>

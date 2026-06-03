@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S08 Image Hero</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto}
+    .chrome-min{padding:40px 80px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--grey-2)}
+    .t-cat{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+    .t-meta{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-3);margin:0}
+    .hero{background:var(--ink);position:relative;min-height:400px}
+    .hero-overlay{position:absolute;top:40px;left:40px;background:var(--paper);padding:32px;max-width:50%}
+    .hero-title{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:600;font-size:36px;color:var(--ink);margin:0 0 8px}
+    .hero-desc{font-family:"Inter","Noto Sans SC",sans-serif;font-size:18px;color:var(--grey-3);margin:0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+    .stat{padding:32px 80px;border-top:1px solid var(--grey-2);border-right:1px solid var(--grey-2)}
+    .stat:last-child{border-right:0}
+    .stat-num{font-family:"Inter",sans-serif;font-weight:200;font-size:72px;line-height:1;color:var(--ink);margin:0 0 8px}
+    .stat-label{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-3);margin:0}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="chrome-min">
+      <span class="t-cat">S08 · Image Hero</span>
+      <span class="t-meta">2026.06</span>
+    </div>
+    <div class="hero">
+      <div class="hero-overlay">
+        <h3 class="hero-title">MiMo M3 开源发布</h3>
+        <p class="hero-desc">性能接近 Opus 4.7，价格只有百分之一</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><p class="stat-num">59.0%</p><p class="stat-label">SWE-Bench</p></div>
+      <div class="stat"><p class="stat-num">100万</p><p class="stat-label">Token</p></div>
+      <div class="stat"><p class="stat-num">$0.12</p><p class="stat-label">Per M</p></div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S08 · Image Hero</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S01 Accent Cover</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1080px;height:1440px;background:var(--paper);position:relative;overflow:hidden;padding:96px 88px;display:flex;flex-direction:column;justify-content:center}
+    .dot-mat{position:absolute;inset:0;opacity:.08;background-image:radial-gradient(var(--ink) 1.5px,transparent 1.5px);background-size:24px 24px}
+    .chrome-min{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--grey-2);margin-bottom:48px}
+    .t-cat{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+    .t-meta{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-3);margin:0}
+    .h-statement{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:200;font-size:124px;line-height:1.05;letter-spacing:-.015em;margin:0 0 48px;color:var(--ink)}
+    .accent-block{background:var(--accent);color:var(--accent-on);padding:40px;margin-bottom:48px}
+    .accent-text{font-family:"IBM Plex Mono",monospace;font-size:18px;margin:0}
+    .tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto}
+    .tag{font-family:"IBM Plex Mono",monospace;font-size:14px;padding:8px 16px;border:1px solid var(--ink);color:var(--ink)}
+    .issue-strip{position:absolute;bottom:96px;left:88px;right:88px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:20px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="dot-mat"></div>
+    <div class="chrome-min">
+      <span class="t-cat">S01 · Accent Cover</span>
+      <span class="t-meta">2026.06</span>
+    </div>
+    <h1 class="h-statement">MiMo M3<br>开源了</h1>
+    <div class="accent-block">
+      <p class="accent-text">SWE-Bench Pro 59.0% · 接近 Opus 4.7</p>
+    </div>
+    <div class="tags">
+      <span class="tag">开源</span>
+      <span class="tag">编程</span>
+      <span class="tag">AI</span>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S01 · Accent Cover</span></div>
+  </div>
+</body>
+</html>

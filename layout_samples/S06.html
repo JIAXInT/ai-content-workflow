@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S06 Pipeline</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;padding:60px 80px;display:flex;flex-direction:column}
+    .header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px}
+    .h-xl{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:300;font-size:56px;margin:0;color:var(--ink)}
+    .t-cat{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    .pipeline{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;flex:1}
+    .stage{background:var(--grey-1);padding:32px;display:flex;flex-direction:column}
+    .stage-nb{font-family:"IBM Plex Mono",monospace;font-size:24px;color:var(--accent);margin:0 0 16px}
+    .stage-title{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:600;font-size:28px;color:var(--ink);margin:0 0 12px}
+    .stage-desc{font-family:"Inter","Noto Sans SC",sans-serif;font-size:18px;color:var(--grey-3);margin:0 0 24px}
+    .stage-action{font-family:"IBM Plex Mono",monospace;font-size:16px;color:var(--accent);margin-top:auto;padding-top:16px;border-top:1px solid var(--grey-2)}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1 class="h-xl">M3 架构</h1>
+      <span class="t-cat">Architecture</span>
+    </div>
+    <div class="pipeline">
+      <div class="stage">
+        <p class="stage-nb">01</p>
+        <h3 class="stage-title">输入层</h3>
+        <p class="stage-desc">文本、图像、视频多模态输入</p>
+        <p class="stage-action">MSA 稀疏注意力</p>
+      </div>
+      <div class="stage">
+        <p class="stage-nb">02</p>
+        <h3 class="stage-title">处理层</h3>
+        <p class="stage-desc">100万 Token 上下文处理</p>
+        <p class="stage-action">MoE 混合专家</p>
+      </div>
+      <div class="stage">
+        <p class="stage-nb">03</p>
+        <h3 class="stage-title">输出层</h3>
+        <p class="stage-desc">代码生成、推理、Agent</p>
+        <p class="stage-action">思维模式切换</p>
+      </div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S06 · Pipeline</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S04 Interface</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;padding:60px 80px;display:flex;flex-direction:column}
+    .browser{background:var(--paper);border:1px solid var(--grey-2);border-radius:8px;overflow:hidden;flex:1}
+    .browser-bar{height:40px;background:var(--grey-1);border-bottom:1px solid var(--grey-2);display:flex;align-items:center;padding:0 16px;gap:8px}
+    .dot{width:12px;height:12px;border-radius:50%}
+    .dot-r{background:#f08080}
+    .dot-y{background:#f5c450}
+    .dot-g{background:#7ec98f}
+    .browser-url{margin-left:16px;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3)}
+    .browser-content{padding:40px;display:flex;flex-direction:column;gap:24px}
+    .code-line{font-family:"IBM Plex Mono",monospace;font-size:18px;color:var(--ink);background:var(--grey-1);padding:12px 16px}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="browser">
+      <div class="browser-bar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="browser-url">minimax.io/blog/m3</span>
+      </div>
+      <div class="browser-content">
+        <div class="code-line"># Install MiniMax M3</div>
+        <div class="code-line">pip install minimax-m3</div>
+        <div class="code-line"></div>
+        <div class="code-line"># Generate code</div>
+        <div class="code-line">from minimax import M3</div>
+        <div class="code-line">model = M3.from_pretrained("m3-base")</div>
+        <div class="code-line">result = model.generate("Write a Python function...")</div>
+      </div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S04 · Interface</span></div>
+  </div>
+</body>
+</html>

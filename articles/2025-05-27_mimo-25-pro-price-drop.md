@@ -3,7 +3,7 @@ author: AI创享派
 category: 产品发布
 cover: ../covers/cover-main.png
 date: 2025-05-27
-feishu_url: https://ncn0oci0h28m.feishu.cn/docx/Tybcd9IVEorotAxRgQMczQ0cnVg
+feishu_url: https://ncn0oci0h28m.feishu.cn/docx/FaaPdDd3SoFZlOxFzQUcJmBBnxe
 tags:
 - MiMo
 - DeepSeek

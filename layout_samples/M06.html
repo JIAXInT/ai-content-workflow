@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M06 Evidence Wall</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;padding:60px 80px;display:flex;flex-direction:column}
+    .header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:48px;margin:0;color:var(--ink)}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;flex:1}
+    .evidence{background:var(--ink);position:relative;display:flex;align-items:flex-end;padding:24px}
+    .evidence-label{font-family:"IBM Plex Mono",monospace;font-size:14px;color:rgba(255,255,255,.8)}
+    .caption{font-family:"Noto Serif SC",serif;font-size:20px;color:var(--muted);margin-top:24px;text-align:center}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1 class="h-xl">三张图看懂 M3</h1>
+      <span class="kicker">Evidence Wall</span>
+    </div>
+    <div class="grid">
+      <div class="evidence"><span class="evidence-label">SWE-Bench Pro 59.0%</span></div>
+      <div class="evidence"><span class="evidence-label">100万 Token 上下文</span></div>
+      <div class="evidence"><span class="evidence-label">价格 $0.12/M Tokens</span></div>
+    </div>
+    <p class="caption">数据来源：MiniMax 官方博客</p>
+    <div class="issue-strip"><span>AI创享派</span><span>M06 · Evidence Wall</span></div>
+  </div>
+</body>
+</html>

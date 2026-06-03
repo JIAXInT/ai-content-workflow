@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M01 Cover</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root,[data-theme="ink-classic"]{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22);--accent:#111111}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1080px;height:1440px;background:var(--paper);position:relative;overflow:hidden;padding:96px 88px;display:flex;flex-direction:column}
+    .grain{position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;background-image:radial-gradient(rgba(0,0,0,.045) 1px,transparent 1px);background-size:3px 3px}
+    .issue-row{display:flex;align-items:center;gap:16px;font-family:"IBM Plex Mono",monospace;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:48px}
+    .issue-row .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .h-display{font-family:"Noto Serif SC",serif;font-weight:500;font-size:124px;line-height:1.06;letter-spacing:.04em;margin:0 0 32px;color:var(--ink)}
+    .h-sub{font-family:"Playfair Display",serif;font-style:italic;font-weight:400;font-size:36px;color:var(--muted);margin:0 0 48px}
+    .hero-img{width:100%;aspect-ratio:16/10;background:var(--ink);margin-bottom:48px}
+    .lead{font-family:"Noto Serif SC",serif;font-weight:400;font-size:28px;line-height:1.55;color:rgba(10,10,11,.82);margin:0 0 32px}
+    .points{display:flex;flex-direction:column;gap:16px;margin-top:auto}
+    .point{display:flex;align-items:baseline;gap:16px;font-family:"Noto Serif SC",serif;font-size:22px;line-height:1.5}
+    .point-nb{font-family:"IBM Plex Mono",monospace;font-size:18px;color:var(--muted);min-width:32px}
+    .issue-strip{position:absolute;bottom:56px;left:88px;right:88px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="grain"></div>
+    <div class="issue-row"><span>Vol. 01</span><span class="dot"></span><span>2026.06</span></div>
+    <h1 class="h-display">MiMo M3<br>开源了</h1>
+    <p class="h-sub">Performance approaching Opus 4.7</p>
+    <div class="hero-img"></div>
+    <p class="lead">一个开源模型，在编程能力上逼近目前公认的最强闭源模型，这事儿是不是有点离谱了？</p>
+    <div class="points">
+      <div class="point"><span class="point-nb">01</span><span>SWE-Bench Pro 59.0%，超越 GPT-5.5</span></div>
+      <div class="point"><span class="point-nb">02</span><span>100万 token 上下文窗口</span></div>
+      <div class="point"><span class="point-nb">03</span><span>价格只有 Opus 的百分之一</span></div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>M01 · Cover</span></div>
+  </div>
+</body>
+</html>

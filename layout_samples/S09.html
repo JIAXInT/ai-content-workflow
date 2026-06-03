@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>S09 KPI Tower</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root,[data-accent="ikb"]{--paper:#fafaf8;--ink:#0a0a0a;--grey-1:#f0f0ee;--grey-2:#d4d4d2;--grey-3:#737373;--accent:#002FA7;--accent-on:#ffffff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;padding:80px 120px;display:flex;flex-direction:column}
+    .chrome-min{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--grey-2);margin-bottom:48px}
+    .t-cat{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+    .t-meta{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-3);margin:0}
+    .h-xl{font-family:"Inter","Noto Sans SC",sans-serif;font-weight:300;font-size:64px;line-height:1.1;margin:0 0 48px;color:var(--ink)}
+    .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;align-items:end;flex:1}
+    .tower{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+    .tower-num{font-family:"Inter",sans-serif;font-weight:200;font-size:88px;line-height:1;letter-spacing:-.02em;margin:0;color:var(--ink)}
+    .tower-label{font-family:"IBM Plex Mono",monospace;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-3);margin:0}
+    .tower-bar{width:100%;background:var(--accent)}
+    .tower.muted .tower-bar{background:var(--grey-2)}
+    .tower.muted .tower-num{color:var(--grey-3)}
+    .issue-strip{position:absolute;bottom:80px;left:120px;right:120px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--grey-3);border-top:1px solid var(--grey-2);padding-top:20px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="chrome-min">
+      <span class="t-cat">S09 · KPI Tower</span>
+      <span class="t-meta">Data</span>
+    </div>
+    <h1 class="h-xl">一组数字看懂 M3</h1>
+    <div class="kpi-row">
+      <div class="tower"><p class="tower-num">59.0%</p><p class="tower-label">SWE-Bench</p><div class="tower-bar" style="height:240px"></div></div>
+      <div class="tower"><p class="tower-num">100万</p><p class="tower-label">Token</p><div class="tower-bar" style="height:200px"></div></div>
+      <div class="tower"><p class="tower-num">9.4×</p><p class="tower-label">加速</p><div class="tower-bar" style="height:180px"></div></div>
+      <div class="tower muted"><p class="tower-num">$0.12</p><p class="tower-label">价格</p><div class="tower-bar" style="height:160px"></div></div>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>S09 · KPI Tower</span></div>
+  </div>
+</body>
+</html>

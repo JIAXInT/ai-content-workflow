@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M09 Atmospheric Thesis</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--ink);position:relative;overflow:hidden;padding:80px 120px;display:flex;flex-direction:column;justify-content:center}
+    .grain{position:absolute;inset:0;opacity:.26;mix-blend-mode:screen;background-image:radial-gradient(rgba(255,244,214,.10) 1px,transparent 1px);background-size:3px 3px}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 32px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:500;font-size:72px;line-height:1.2;color:var(--paper);margin:0 0 48px}
+    .note{font-family:"Noto Serif SC",serif;font-size:24px;line-height:1.6;color:rgba(255,255,255,.6);max-width:800px}
+    .issue-strip{position:absolute;bottom:56px;left:120px;right:120px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:rgba(255,255,255,.4);border-top:1px solid rgba(255,255,255,.2);padding-top:18px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="grain"></div>
+    <p class="kicker">Thesis</p>
+    <h1 class="h-xl">AI正在变得<br>越来越便宜<br>便宜到不需要比较</h1>
+    <p class="note">M3 的出现，加速了这个进程。这是好事。</p>
+    <div class="issue-strip"><span>AI创享派</span><span>M09 · Atmospheric Thesis</span></div>
+  </div>
+</body>
+</html>

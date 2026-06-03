@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M11 Marginalia</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 280px}
+    .main{padding:80px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+    .margin{padding:80px 40px;display:flex;flex-direction:column;justify-content:center}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:56px;line-height:1.15;margin:0 0 32px;color:var(--ink)}
+    .para{font-family:"Noto Serif SC",serif;font-size:24px;line-height:1.65;color:var(--ink);margin:0 0 24px}
+    .margin-note{font-family:"IBM Plex Mono",monospace;font-size:16px;line-height:1.6;color:var(--muted);margin:0 0 24px;padding-left:16px;border-left:2px solid var(--line)}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="main">
+      <p class="kicker">Essay</p>
+      <h1 class="h-xl">MSA架构<br>为什么重要</h1>
+      <p class="para">传统的注意力机制，计算量会随着文本长度的平方增长。100万token的上下文窗口，如果用传统方法，计算量会大到根本跑不动。</p>
+      <p class="para">MSA的解决方案是稀疏注意力。它不是让模型看每一个token对其他所有token的关系，而是只看最相关的那些。</p>
+    </div>
+    <div class="margin">
+      <p class="margin-note">每token计算量降至前代的1/20</p>
+      <p class="margin-note">预填充速度提升9倍以上</p>
+      <p class="margin-note">解码速度提升15倍以上</p>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>M11 · Marginalia</span></div>
+  </div>
+</body>
+</html>

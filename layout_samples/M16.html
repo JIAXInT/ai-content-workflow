@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M16 Image-Led</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--ink);position:relative;overflow:hidden}
+    .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent 60%)}
+    .content{position:absolute;bottom:80px;left:80px;right:80px}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:0 0 20px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:64px;line-height:1.15;color:var(--paper);margin:0 0 16px}
+    .desc{font-family:"Noto Serif SC",serif;font-size:22px;color:rgba(255,255,255,.7);margin:0}
+    .issue-strip{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:rgba(255,255,255,.4);border-top:1px solid rgba(255,255,255,.2);padding-top:16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="overlay"></div>
+    <div class="content">
+      <p class="kicker">Cover</p>
+      <h1 class="h-xl">MiMo M3<br>开源新纪元</h1>
+      <p class="desc">一个接近Opus 4.7性能的开源模型，价格只有百分之一</p>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>M16 · Image-Led</span></div>
+  </div>
+</body>
+</html>

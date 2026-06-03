@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M03 Essay Split</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1920px;height:1080px;background:var(--paper);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+    .left{padding:80px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+    .right{padding:80px;display:flex;flex-direction:column;justify-content:center}
+    .kicker{font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:64px;line-height:1.1;margin:0 0 32px;color:var(--ink)}
+    .h-sub{font-family:"Playfair Display",serif;font-style:italic;font-size:28px;color:var(--muted);margin:0 0 48px}
+    .para{font-family:"Noto Serif SC",serif;font-size:22px;line-height:1.65;color:var(--ink);margin:0 0 24px}
+    .para:last-child{margin-bottom:0}
+    .nb{font-family:"IBM Plex Mono",monospace;font-size:28px;color:var(--muted);margin:0 0 16px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <p class="kicker">Essay</p>
+      <h1 class="h-xl">信息差<br>是亘古不变的</h1>
+      <p class="h-sub">The eternal information gap</p>
+    </div>
+    <div class="right">
+      <p class="nb">01</p>
+      <p class="para">你想想看，1880年代电力普及时，大多数人还在用蜡烛。知道电灯的人，和不知道的人，活在完全不同的世界里。</p>
+      <p class="nb">02</p>
+      <p class="para">现在AI也是一样。知道怎么用Claude Code的人，效率是不知道的人的十倍。这个差距，比电灯和蜡烛的差距还大。</p>
+      <p class="nb">03</p>
+      <p class="para">我不是在制造焦虑，我是在说一个事实。信息差从来不会消失，它只会换一种形式存在。</p>
+    </div>
+  </div>
+</body>
+</html>

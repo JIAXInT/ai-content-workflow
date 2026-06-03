@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="ink-classic">
+<head>
+  <meta charset="utf-8">
+  <title>M07 Closing Note</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{--paper:#f3f0e8;--ink:#0a0a0b;--muted:#68625a;--line:rgba(10,10,11,.22)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;padding:32px}
+    .card{width:1080px;height:1440px;background:var(--paper);position:relative;overflow:hidden;padding:96px 88px;display:flex;flex-direction:column}
+    .h-xl{font-family:"Noto Serif SC",serif;font-weight:700;font-size:48px;line-height:1.2;margin:0 0 48px;color:var(--ink)}
+    .ledger{display:flex;flex-direction:column;flex:1}
+    .ledger-row{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:baseline;padding:32px 0;border-bottom:1px solid var(--line)}
+    .ledger-row:last-child{border-bottom:0}
+    .ledger-nb{font-family:"IBM Plex Mono",monospace;font-size:28px;color:var(--muted)}
+    .ledger-title{font-family:"Noto Serif SC",serif;font-weight:500;font-size:32px;color:var(--ink)}
+    .closing{margin-top:auto;padding-top:32px;border-top:1px solid var(--line)}
+    .closing-text{font-family:"Noto Serif SC",serif;font-style:italic;font-size:24px;color:var(--muted)}
+    .issue-strip{position:absolute;bottom:56px;left:88px;right:88px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="h-xl">三个关键结论</h1>
+    <div class="ledger">
+      <div class="ledger-row"><span class="ledger-nb">01</span><span class="ledger-title">开源模型已具备软件工程能力</span></div>
+      <div class="ledger-row"><span class="ledger-nb">02</span><span class="ledger-title">价格战加速AI基础设施化</span></div>
+      <div class="ledger-row"><span class="ledger-nb">03</span><span class="ledger-title">开发者是最大受益者</span></div>
+    </div>
+    <div class="closing">
+      <p class="closing-text">技术的进步最终会让所有人受益。</p>
+    </div>
+    <div class="issue-strip"><span>AI创享派</span><span>M07 · Closing Note</span></div>
+  </div>
+</body>
+</html>
