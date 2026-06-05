@@ -65,22 +65,139 @@ python scripts/browser_screenshot.py "url" -o images/my-article/
 
 ### 第四步：生成公众号文章
 用户确认选题后，使用 `khazix-writer` 技能生成公众号长文：
-1. 基于选题素材，以「AI创享派」风格写作
+1. 基于选题素材，以「AI创享派」风格写作（默认技术科普型）
 2. 文章 4000-8000 字
-3. 跑四层自检体系（L1 硬性规则 → L2 风格一致性 → L3 内容质量 → L4 活人感）
+3. **强制执行四层自检体系**（L1 硬性规则 → L2 风格一致性 → L3 内容质量 → L4 活人感）
 4. 输出质检报告
+5. **使用 `humanizer-zh` 技能对文章进行去 AI 味处理**
+   - 识别并修复 AI 写作痕迹（夸大象征意义、宣传性语言、模糊归因等）
+   - 注入真实个性和语调
+   - 保持核心信息完整
+   - 使文章更自然、更有人味
 
-### 第五步：生成社交卡片并保存到飞书文档
-文章生成后，自动生成社交卡片并保存到飞书文档：
+#### 四层自检体系（强制执行）
+**每次生成文章后，必须执行以下自检流程：**
+
+**L1 硬性规则检查**
+- 禁用词扫描：禁止"说白了"、"意味着什么"、"本质上"、"换句话说"、"不可否认"
+- 禁用标点扫描：禁止冒号"："、破折号"——"、双引号""和""
+- 结构性套话扫描：禁止"让我们来看看"、"在当今...的时代"
+- 空泛工具名检查：必须使用具体工具名称
+
+**L2 风格一致性检查**
+- 开头检查：必须从具体事件切入，禁止宏大叙事
+- 节奏检查：长短句交替，至少3处一句话独立成段
+- 口语化检查：全文至少8-10个口语化表达
+- 标点禁令二次确认：确保无禁用标点
+
+**L3 内容质量检查**
+- 观点支撑检查：每个观点必须有具体案例支撑
+- 知识输出检查：知识必须"聊着聊着顺手掏出来"
+- 文化升维检查：至少1处连接到文化/哲学/历史参照物
+- 对立面与同理心检查：先理解对方立场，再给出自己视角
+
+**L4 活人感终审**
+- 温度感：情绪表达必须是体感记忆，不是知识性描述
+- 独特性：必须有"只有AI创享派才会写出来的角度"
+- 姿态检查：必须是"有见识的普通人在认真聊一件打动他的事"
+- 心流检查：从头到尾读，不能有注意力断掉的地方
+
+#### 标题优化规则（强制执行）
+**文章生成后，必须进行标题优化：**
+
+**标题生成策略**
+1. **数字+悬念+情绪**：估值 54 亿的 AI，让我 5 分钟做了首歌，听完我自己都愣了
+2. **反差+好奇**：我用 AI 做了首歌，歌词写得比我好，这世界怎么了
+3. **提问+价值主张**：54 亿美元的 AI 音乐：普通人也能当音乐人了？
+4. **事实+悬念**：Suno 融了 4 亿美元，我试了试，回不去了
+5. **情绪冲击+反差**：AI 做的歌让我听哭了，这还是我认识的 AI 吗
+
+**标题禁忌**
+- ❌ 平铺直叙：XXX 发布了 YYY
+- ❌ 无数字：AI 音乐新突破
+- ❌ 无情绪：关于 Suno 的分析
+- ❌ 过长：超过 30 字
+
+**标题优化流程**
+1. 生成 5 个标题候选
+2. 用户选择最喜欢的标题
+3. 更新文章 frontmatter 中的 title 字段
+4. 重新保存到飞书文档
+
+### 第五步：生成社交卡片并同步到 Obsidian
+文章生成后，自动生成社交卡片并同步到 Obsidian：
 1. 保存文章到本地：`articles/YYYY-MM-DD_标题.md`
-2. 生成社交卡片：运行 `python scripts/generate_social_cards.py articles/YYYY-MM-DD_标题.md`
+2. 生成社交卡片（V2 版本，基于 guizang-social-card-skill 最佳实践）：
+   ```bash
+   # 使用 V2 版本生成器（推荐）
+   python scripts/generate_social_cards_v2.py articles/YYYY-MM-DD_标题.md --no-metrics
+
+   # 或使用旧版本
+   python scripts/generate_social_cards.py articles/YYYY-MM-DD_标题.md
+   ```
    - 自动创建目录：`covers/YYYY-MM-DD_article-name/`
    - 生成 HTML 文件：`social-cards.html`
 3. 渲染为 PNG：运行 `python scripts/render_social_cards.py covers/YYYY-MM-DD_article-name/social-cards.html`
    - 自动生成 7 张 PNG 图片到同一目录
 4. 获取原文截图作为插图：自动从文章中提取原文链接并截取截图
-5. 保存到飞书：运行 `python scripts/save_to_feishu.py articles/YYYY-MM-DD_标题.md`
-6. 输出飞书文档链接
+5. 同步到 Obsidian：自动复制文章和图片到 Obsidian 仓库
+   - **Obsidian 仓库路径**：`D:\Obsidian\AI创享派\AI创享派`
+   - **目录结构**（每篇文章一个根目录）：
+     ```
+     YYYY-MM-DD_文章简称/
+     ├── article/
+     │   └── YYYY-MM-DD_文章简称.md    ← 文章正文（无 frontmatter）
+     ├── covers/
+     │   └── (社交卡片图片)
+     └── images/
+         └── (原文截图)
+     ```
+   - **文章格式要求（强制执行）**：
+     - ❌ 不使用 frontmatter（YAML 头部元数据）
+     - ✅ 第一行为 H1 标题：`# 爆款标题`
+     - ✅ 文件名用爆款标题（去掉特殊字符）：`57.5%的互联网流量来自机器人你每天刷的网页一半不是人在看.md`
+     - ✅ 封面图插入到标题下方：`![封面图](../images/cover.png)`
+     - ✅ 原文截图插入到文章中：`![原文截图](../images/xxx.png)`
+     - ✅ 每篇文章至少插入 2 张图片（封面图 + 原文截图）
+   - **目录命名**：`YYYY-MM-DD_文章简称`（如 `2026-06-05_机器人流量超过人类`）
+   - **封面图生成**：必须使用 `--no-metrics` 参数去掉关键指标和重要数据板块
+     ```bash
+     python scripts/generate_social_cards_v2.py articles/YYYY-MM-DD_标题.md --no-metrics
+     ```
+
+#### 小红书卡片生成优化（V2 版本）
+
+**核心改进**（基于 guizang-social-card-skill 最佳实践）：
+1. **内容规划**：压缩阶梯 + 多样化页面角色
+2. **布局系统**：引入 S01-S12 Swiss 布局食谱
+3. **样式规范**：遵循"越大越轻"排版规则
+4. **密度检查**：确保 3:4 卡覆盖 ≥75% 画布
+5. **组件规范**：正确的字体大小和权重映射
+
+**页面角色多样化**：
+- S01 Cover：封面钩子
+- S03 Data Matrix：数据矩阵
+- S05 Problem：问题场景
+- S06 Checklist：清单/指南
+- S07 Comparison：对比分析
+- S04 Pull Quote：大引用
+- S11 Summary：总结页
+
+**密度要求**（3:4 硬性规则）：
+- 1080×1440 卡片必须覆盖 ≥75% 画布高度
+- 任何 >15% 画布高度的纯空白带都需要"留白理由"
+- 禁止用 `<div style="flex: 1"></div>` 上下夹击把内容塞到中段
+
+**字体规范**（Swiss International）：
+- 大标题：Inter, 200-300 weight（越大越轻）
+- 正文：Noto Sans SC, 400 weight
+- 标签/元数据：IBM Plex Mono, 500 weight
+
+**最小可读尺寸**（手机端安全）：
+- 正文/段落：28px
+- 引导语：30px
+- 说明/标签：20px
+- 网格单元格标题：24px
 
 #### 社交卡片输出
 - **公众号封面**：21:9 主封面 + 1:1 方封面
@@ -94,6 +211,47 @@ python scripts/browser_screenshot.py "url" -o images/my-article/
 - 小红书：提炼 3-5 个核心观点，配图文案
 - 抖音：口播脚本或短视频文案
 
+### 第七步：一键发布多平台（Wechatsync）
+使用 Wechatsync CLI 一键发布文章到 29+ 平台：
+
+**前置条件**：
+1. 安装 CLI：`npm install -g @wechatsync/cli`
+2. 安装 Chrome 扩展：[Chrome 网上应用店](https://chrome.google.com/webstore/detail/hchobocdmclopcbnibdnoafilagadion)
+3. 在扩展设置中启用「MCP 连接」并设置 Token
+4. 设置环境变量：`export WECHATSYNC_TOKEN="your-token"`
+5. 在浏览器中登录目标平台
+
+**使用方法**：
+```bash
+# 查看平台登录状态
+wechatsync platforms --auth
+
+# 同步文章到单个平台
+wechatsync sync article.md -p juejin
+
+# 同步文章到多个平台
+wechatsync sync article.md -p juejin,zhihu,csdn,xiaohongshu
+
+# 自定义标题和封面
+wechatsync sync article.md -p juejin -t "标题" --cover ./cover.png
+
+# 预览模式（不同步）
+wechatsync sync article.md -p juejin --dry-run
+```
+
+**支持的平台**：
+- 主流自媒体：微信公众号、知乎、微博、小红书、抖音图文
+- 技术社区：掘金、CSDN、简书、博客园、SegmentFault、开源中国
+- 通用平台：头条号、百家号、搜狐号、网易号、一点号
+- 海外平台：X (Twitter)
+- 自建站：WordPress、Typecho
+
+**工作流程**：
+1. 生成文章并保存到本地
+2. 检查平台登录状态：`wechatsync platforms --auth`
+3. 同步文章：`wechatsync sync article.md -p platform1,platform2`
+4. 在各平台检查草稿并发布
+
 ## 快捷命令
 - `今日热点` / `AI 日报` → 拉取最新热点
 - `截图素材` / `截取原文` → 截取选题的原文网页作为素材
@@ -102,7 +260,10 @@ python scripts/browser_screenshot.py "url" -o images/my-article/
 - `生成卡片` → 基于文章生成社交卡片（公众号封面 + 小红书轮播图）
   - 自动创建目录：`covers/YYYY-MM-DD_article-name/`
   - 生成 HTML 和 PNG 文件
-- `保存到飞书` → 将文章保存到飞书文档（包含社交卡片）
+- `同步到 Obsidian` → 同步文章和图片到 Obsidian 仓库
+- `发布到XXX` → 使用 Wechatsync 一键发布文章到指定平台
+  - 例如：`发布到掘金和知乎`、`发布到小红书`
+  - 支持同时发布到多个平台
 
 ## 社交卡片生成
 

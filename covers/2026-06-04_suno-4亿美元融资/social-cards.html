@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>估值 54 亿的 AI，让我 5 分钟做了首歌，听完我自己都愣了 · Social Card Set</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* =========================================================
+       Swiss International — Social Card Template V2
+       支持多种版式，内容占满卡片
+       ========================================================= */
+
+    /* ---------- 1. Accent palettes ---------- */
+    :root,
+    [data-accent="ikb"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #002FA7;
+      --accent-on: #ffffff;
+    }
+    [data-accent="lemon-yellow"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #FFD500;
+      --accent-on: #0a0a0a;
+    }
+    [data-accent="lemon-green"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #C5E803;
+      --accent-on: #0a0a0a;
+    }
+    [data-accent="safety-orange"] {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --accent: #FF6B35;
+      --accent-on: #ffffff;
+    }
+
+    /* ---------- 2. Typography stack ---------- */
+    :root {
+      --sans:    "Inter", "Helvetica Neue", Helvetica, "Noto Sans SC",
+                 -apple-system, "PingFang SC", "Microsoft YaHei UI", sans-serif;
+      --sans-zh: "Noto Sans SC", -apple-system, "PingFang SC",
+                 "Microsoft YaHei UI", "Inter", sans-serif;
+      --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace;
+    }
+
+    /* ---------- 3. Spacing tokens ---------- */
+    :root {
+      --sp-3:   8px;
+      --sp-4:  12px;
+      --sp-5:  16px;
+      --sp-6:  24px;
+      --sp-7:  32px;
+      --sp-8:  40px;
+      --sp-9:  48px;
+      --sp-10: 64px;
+      --sp-11: 80px;
+      --sp-12: 96px;
+      --sp-13:160px;
+    }
+
+    /* ---------- 4. Reset & sheet ---------- */
+    *,*::before,*::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      font-family: var(--sans);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 64px 32px;
+    }
+    .sheet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+
+    /* ---------- 5. Poster boards ---------- */
+    .poster {
+      position: relative;
+      background: var(--paper);
+      color: var(--ink);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .poster.xhs    { width: 1080px; height: 1440px; }
+    .poster.square { width: 1080px; height: 1080px; }
+    .poster.wide   { width: 2100px; height:  900px; }
+    .poster figure { margin: 0; }
+
+    .poster.xhs    .content { padding: var(--sp-12) var(--sp-11); }
+    .poster.square .content { padding: var(--sp-11) var(--sp-11); }
+    .poster.wide   .content { padding: var(--sp-11) var(--sp-13); }
+    .content { position: relative; width: 100%; height: 100%; z-index: 2; }
+
+    /* ---------- 6. Decorative layers ---------- */
+    .dot-mat {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .08;
+      background-image: radial-gradient(var(--ink) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    /* ---------- 7. Typography roles ---------- */
+    .h-statement {
+      font-family: var(--sans-zh);
+      font-weight: 200;
+      font-size: 124px;
+      line-height: 1.05;
+      letter-spacing: -.015em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .h-xl {
+      font-family: var(--sans-zh);
+      font-weight: 300;
+      font-size: 96px;
+      line-height: 1.08;
+      letter-spacing: -.01em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .h-lg {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 56px;
+      line-height: 1.18;
+      letter-spacing: 0;
+      margin: 0;
+    }
+    .h-md {
+      font-family: var(--sans-zh);
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .t-cat {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .t-meta {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: .2em;
+      color: var(--grey-3);
+    }
+    .t-body {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.65;
+      color: var(--ink);
+      margin: 0;
+    }
+    .t-body-sm {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 0;
+    }
+    .t-body-lg {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 0;
+    }
+    .num {
+      font-family: var(--sans);
+      font-weight: 200;
+      font-size: 64px;
+      line-height: 1;
+      margin: 0;
+    }
+    .lbl {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: .15em;
+      color: var(--grey-3);
+      margin: 0;
+    }
+
+    /* ---------- 8. Layout primitives ---------- */
+    .stack { display: flex; flex-direction: column; }
+    .stack.gap-3 { gap: var(--sp-3); }
+    .stack.gap-4 { gap: var(--sp-4); }
+    .stack.gap-5 { gap: var(--sp-5); }
+    .stack.gap-6 { gap: var(--sp-6); }
+    .stack.gap-7 { gap: var(--sp-7); }
+    .stack.gap-8 { gap: var(--sp-8); }
+    .stack.gap-9 { gap: var(--sp-9); }
+    .stack.gap-10 { gap: var(--sp-10); }
+
+    .row { display: flex; align-items: center; }
+    .row.gap-4 { gap: var(--sp-4); }
+    .row.gap-5 { gap: var(--sp-5); }
+    .row.gap-6 { gap: var(--sp-6); }
+
+    .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-7); }
+
+    .rule-h {
+      height: 1px;
+      background: var(--grey-2);
+      width: 100%;
+    }
+    .rule-v {
+      width: 1px;
+      background: var(--grey-2);
+      height: 100%;
+    }
+
+    .chrome-min {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .issue-strip {
+      position: absolute;
+      bottom: var(--sp-11);
+      left: var(--sp-11);
+      right: var(--sp-11);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 16px;
+      color: var(--grey-3);
+      letter-spacing: .1em;
+      z-index: 3;
+    }
+
+    .accent-block {
+      background: var(--accent);
+      color: var(--accent-on);
+      padding: var(--sp-6) var(--sp-7);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      background: var(--grey-1);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--ink);
+    }
+    .tag-list { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+
+    /* ---------- 9. Card fills ---------- */
+    .card-ink {
+      background: var(--ink);
+      color: var(--paper);
+      padding: var(--sp-7);
+    }
+    .card-accent {
+      background: var(--accent);
+      color: var(--accent-on);
+      padding: var(--sp-7);
+    }
+    .card-fill {
+      background: var(--grey-1);
+      color: var(--ink);
+      padding: var(--sp-7);
+    }
+    .card-outlined {
+      background: transparent;
+      border: 1px solid var(--grey-2);
+      color: var(--ink);
+      padding: var(--sp-7);
+    }
+
+    /* ---------- 10. Image containers ---------- */
+    .frame-img {
+      position: relative;
+      overflow: hidden;
+      background: var(--grey-1);
+    }
+    .frame-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .r-16x9 { aspect-ratio: 16 / 9; }
+    .r-3x4 { aspect-ratio: 3 / 4; }
+    .r-4x3 { aspect-ratio: 4 / 3; }
+    .r-1x1 { aspect-ratio: 1 / 1; }
+    .r-21x9 { aspect-ratio: 21 / 9; }
+
+    /* ---------- 11. Component: Check row ---------- */
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-5);
+      padding: var(--sp-5) 0;
+      border-bottom: 1px solid var(--grey-2);
+    }
+    .check-row .idx {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--accent);
+      min-width: 32px;
+    }
+    .check-row .item {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .check-row .note {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--grey-3);
+      min-width: 120px;
+      text-align: right;
+    }
+
+    /* ---------- 12. Component: Stat block ---------- */
+    .stat-block {
+      text-align: center;
+    }
+    .stat-block .num {
+      font-size: 72px;
+      color: var(--accent);
+    }
+    .stat-block .lbl {
+      margin-top: var(--sp-3);
+    }
+
+    /* ---------- 13. Component: KPI tower ---------- */
+    .kpi-tower-row {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--sp-8);
+    }
+    .tower-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-4);
+      flex: 1;
+    }
+    .bar-tower {
+      width: 100%;
+      background: var(--accent);
+      min-height: 20px;
+    }
+
+    /* ---------- 14. Component: Quote block ---------- */
+    .quote-block {
+      border-left: 4px solid var(--accent);
+      padding: var(--sp-6) var(--sp-7);
+      background: var(--grey-1);
+    }
+    .quote-block .quote-text {
+      font-family: var(--sans-zh);
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0;
+    }
+    .quote-block .quote-source {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--grey-3);
+      margin-top: var(--sp-4);
+    }
+
+    /* ---------- 15. Component: Full-bleed image ---------- */
+    .full-bleed {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .full-bleed img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .full-bleed .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .full-bleed .content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    /* ---------- 16. Component: Side image ---------- */
+    .side-image-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-7);
+      height: 100%;
+    }
+    .side-image-layout .text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--sp-6);
+    }
+    .side-image-layout .image-side {
+      position: relative;
+      overflow: hidden;
+    }
+    .side-image-layout .image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- 17. Pair preview ---------- */
+    .pair-preview {
+      display: flex;
+      gap: 32px;
+      align-items: flex-end;
+    }
+  </style>
+
+    <script>
+  ;
+    </script>
+
+    <script>
+      var CARD_DATA = {
+  "title": "估值 54 亿的 AI，让我 5 分钟做了首歌，听完我自己都愣了",
+  "subtitle": "昨天刷到一条新闻，Suno 融了 4 亿美元，估值 54 亿。\n我当时就愣住了。\n不是因为数字大，而是因为我前几天刚用它做了首歌，做完之后的反应是，「卧槽，这也太爽了吧」。\n一个让普通人 5 分钟就能做出一首歌的工具，融了 54 亿美元。这事本身就挺魔幻的。",
+  "category": "AI · 产品体验",
+  "date": "2026-06-04",
+  "author": "AI创享派",
+  "accent": "ikb",
+  "images": [
+    "D:/AI Agent/ai-chaungxiangpai/images/2026-06-04-suno-funding/suno-blog.png",
+    "D:/AI Agent/ai-chaungxiangpai/images/2026-06-04-suno-funding/suno-homepage.png",
+    "D:/AI Agent/ai-chaungxiangpai/images/2026-06-04-suno-funding/suno-tweet.png"
+  ],
+  "wechat": {
+    "headline": "估值 54 亿的 AI，让我 5 分钟做了首歌，听完我自己都愣了",
+    "subline": "昨天刷到一条新闻，Suno 融了 4 亿美元，估值 54 亿。\n我当时就愣住了。\n不是因为数字大，而是因为我前几天刚用它做了首歌，做完之后的反应是，「卧槽，这也太爽了吧」。\n一个让普通人 5 分钟就能做出一首歌的工具，融了 54 亿美元。这事本身就挺魔幻的。",
+    "stats": [
+      {
+        "num": "54亿",
+        "label": "估值"
+      },
+      {
+        "num": "1200万",
+        "label": "用户"
+      }
+    ]
+  },
+  "xhs": [
+    {
+      "type": "cover",
+      "headline": "估值 54 亿的 AI，让我 5 分钟做了首歌，听完我自己都愣了",
+      "subline": "不是因为数字大，而是因为我前几天刚用它做了首歌，做完之后的反应是，「卧槽，这也太爽了吧」",
+      "hook": "不是因为数字大，而是因为我前几天刚用它做了首歌，做完之后的反应是，「卧槽，这也太爽了吧」",
+      "tags": [
+        "Suno",
+        "AI音乐",
+        "融资"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "我为什么要做这首歌",
+      "items": [
+        "总觉得这种东西做出来的东西肯定「没有灵魂」，旋律肯定很套路，歌词肯定很空洞",
+        "毕竟音乐这个东西，太私人了，太情绪化了，AI 怎么可能懂",
+        "但那天我看到 Suno 的融资新闻，突然想试试",
+        "不是为了测评，不是为了写文章，就是单纯的好奇，这玩意到底能做到什么程度"
+      ],
+      "image": null
+    },
+    {
+      "type": "scene",
+      "title": "5 分钟，一首歌",
+      "items": [
+        "我犹豫了一下，写了这么一句，「一首关于深夜加班的歌，有点丧但最后燃起来，适合一个人听」",
+        "前奏是吉他，有点 lo-fi 的感觉，然后一个有点疲惫的声音唱出来， 「凌晨两点的办公室，只剩下我一个人，屏幕的光照在脸上，像是另一个世界的入口",
+        "大概 30 秒后，第一首出来了",
+        "界面很简单，就是输入框，让你描述你想要什么歌"
+      ],
+      "image": null
+    },
+    {
+      "type": "scene",
+      "title": "我又做了几首",
+      "items": [
+        "第一首，「一首关于北京秋天的歌，有银杏叶，有点怀旧」",
+        "出来的效果还行，歌词里有「落叶铺满长安街，金黄一片像是回忆」，挺有画面感的",
+        "第二首，「一首适合跑步时听的歌，节奏快，燃一点」",
+        "节奏感很强，歌词里有「心跳和鼓点同步，每一步都在燃烧」，真的很适合跑步的时候听"
+      ],
+      "image": null
+    },
+    {
+      "type": "scene",
+      "title": "这不是「AI 做的歌」",
+      "items": [
+        "我后来想明白了，为什么我会觉得这些歌「有灵魂」",
+        "它是一个「放大器」，把我脑子里模糊的想法，变成了具体的音乐",
+        "所以这些歌，说到底还是「我做的」，只是我用了一种更高效的方式",
+        "AI 只是帮我把它「做出来」了"
+      ],
+      "image": null
+    },
+    {
+      "type": "scene",
+      "title": "54 亿美元，贵吗？",
+      "items": [
+        "但 Suno 让这两样东西都变得「人人可及」",
+        "这就像数码相机让普通人也能拍照，iPhone 让普通人也能拍视频一样，是真正的「平权」",
+        "全球有几十亿人喜欢音乐，但能做音乐的人可能不到 1%",
+        "54 亿买一个赛道的领跑者，对于 VC 来说，不算贵"
+      ],
+      "image": null
+    },
+    {
+      "type": "scene",
+      "title": "Suno 背后的公司",
+      "items": [
+        "从 2023 年 12 月公开发布到现在，不到三年时间，用户量已经突破了 1200 万",
+        "而且他们的迭代速度也很快，从 v1 到 v4，几乎每隔几个月就有一次大更新，音质、歌词、风格都在不断提升",
+        "公司成立于 2022 年，总部在波士顿",
+        "这个增长速度，说实话有点恐怖"
+      ],
+      "image": null
+    },
+    {
+      "type": "scene",
+      "title": "我对 AI 音乐的看法",
+      "items": [
+        "你知道吗，在 1500 年代，印刷术刚传到欧洲的时候，很多人也觉得「印刷的书没有灵魂」",
+        "以前我觉得 AI 做的音乐「没有灵魂」，现在我觉得灵魂本来就在人身上，AI 只是帮我把它「召唤」出来",
+        "它不是在「取代」人类的创造力，而是在「 democratize 」创造力",
+        "Suno 不会取代音乐人，但它会让「做音乐」这件事，从少数人的特权，变成所有人的权利"
+      ],
+      "image": null
+    },
+    {
+      "type": "scene",
+      "title": "下一步",
+      "items": [
+        "说不定，你会发现自己原来也是个「音乐人」",
+        "可能下一首歌，我会尝试用它来给我的文章配 BGM",
+        "或者，我会让读者来写 prompt，我来做歌，看看大家都能做出什么样的音乐",
+        "你也可以试试，打开 suno.com，输入你想听的歌，看看 AI 会给你什么惊喜"
+      ],
+      "image": null
+    }
+  ]
+};
+    </script>
+    
+</head>
+<body>
+  <main class="sheet" id="cards-container">
+    <!-- 卡片内容将由 JavaScript 动态生成 -->
+  </main>
+
+  <script>
+    // CARD_DATA 已在 <head> 中注入，直接使用
+
+    // 从 URL 参数加载数据
+    function loadDataFromUrl() {
+      var params = new URLSearchParams(window.location.search);
+      var dataParam = params.get('data');
+      if (dataParam) {
+        try {
+          var decoded = decodeURIComponent(atob(dataParam));
+          var parsed = JSON.parse(decoded);
+          CARD_DATA = Object.assign(CARD_DATA, parsed);
+        } catch (e) {
+          console.warn('Failed to parse data parameter:', e);
+        }
+      }
+    }
+
+    // ============================================================
+    // 渲染函数：公众号封面
+    // ============================================================
+    function renderWechatWide(data) {
+      var statsHtml = (data.wechat.stats || []).map(function(s) {
+        return '<div class="stat-block"><p class="num">' + s.num + '</p><p class="lbl">' + s.label + '</p></div>';
+      }).join('<div class="rule-h"></div>');
+
+      return '<section class="poster wide" id="wechat-21x9">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">' + data.category + '</span>' +
+            '<span class="t-meta">' + data.date + '</span>' +
+          '</div>' +
+          '<div style="display:grid; grid-template-columns:1.2fr 1fr; gap:var(--sp-10); flex:1; align-items:center;">' +
+            '<div class="stack gap-6">' +
+              '<h1 class="h-statement">' + data.wechat.headline + '</h1>' +
+              '<p class="t-body" style="color:var(--grey-3)">' + data.wechat.subline + '</p>' +
+            '</div>' +
+            '<div class="stack gap-8">' + statsHtml + '</div>' +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>Cover</span>' +
+            '<span>' + data.date + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    function renderWechatSquare(data) {
+      var statsHtml = (data.wechat.stats || []).slice(0, 2).map(function(s) {
+        return '<div class="stat-block"><p class="num" style="font-size:48px;">' + s.num + '</p><p class="lbl">' + s.label + '</p></div>';
+      }).join('');
+
+      return '<section class="poster square" id="wechat-1x1">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack" style="justify-content:space-between;">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">' + data.category + '</span>' +
+            '<span class="t-meta">' + data.date + '</span>' +
+          '</div>' +
+          '<div class="stack gap-7" style="flex:1; justify-content:center;">' +
+            '<div class="accent-block" style="padding:var(--sp-8) var(--sp-7);">' +
+              '<h1 class="h-lg" style="color:var(--accent-on);">' + data.wechat.headline + '</h1>' +
+            '</div>' +
+            '<div class="col-2" style="margin-top:var(--sp-6);">' + statsHtml + '</div>' +
+            '<p class="t-body-sm" style="margin-top:var(--sp-5);">' + data.wechat.subline + '</p>' +
+          '</div>' +
+          '<div class="issue-strip" style="left:var(--sp-11); right:var(--sp-11);">' +
+            '<span>' + data.author + '</span>' +
+            '<span>Square</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // ============================================================
+    // 渲染函数：小红书卡片（7种版式）
+    // ============================================================
+
+    // 版式1：封面（大标题+副标题+标签）
+    function renderXhsCover(page, index, total, data) {
+      var tagsHtml = (page.tags || []).map(function(t) {
+        return '<span class="tag">' + t + '</span>';
+      }).join('');
+
+      var imageHtml = '';
+      if (page.image) {
+        imageHtml = '<div class="frame-img r-16x9" style="margin-top:var(--sp-8);">' +
+          '<img src="' + page.image + '" alt="封面图片">' +
+        '</div>';
+      }
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack" style="justify-content:space-between;">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">' + data.category + '</span>' +
+            '<span class="t-meta">' + data.date + '</span>' +
+          '</div>' +
+          '<div class="stack gap-7" style="flex:1; justify-content:center;">' +
+            '<h1 class="h-statement">' + page.headline + '</h1>' +
+            '<p class="t-body-lg" style="color:var(--grey-3)">' + page.subline + '</p>' +
+            imageHtml +
+            '<div class="tag-list" style="margin-top:var(--sp-5);">' + tagsHtml + '</div>' +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>封面</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式2：数据展示（大数字+说明）
+    function renderXhsData(page, index, total, data) {
+      var statsHtml = (page.stats || []).map(function(s) {
+        return '<div class="tower-col">' +
+          '<p class="num" style="color:var(--accent); font-size:48px;">' + s.num + '</p>' +
+          '<p class="lbl">' + s.label + '</p>' +
+          '<div class="bar-tower" style="--h:' + s.height + ';"></div>' +
+        '</div>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Data · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="kpi-tower-row" style="flex:1; align-items:end;">' + statsHtml + '</div>' +
+          '<p class="t-body-sm">' + (page.note || '') + '</p>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式3：场景（内容占满，stack 布局承载更多内容）
+    function renderXhsScene(page, index, total, data) {
+      var itemsHtml = (page.items || []).map(function(item, i) {
+        return '<p class="t-body" style="margin-bottom:var(--sp-5); line-height:1.7;">' + item + '</p>';
+      }).join('');
+
+      // 如果有图片，图片作为独立区域放在顶部
+      if (page.image) {
+        return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+          '<div class="dot-mat"></div>' +
+          '<div class="content stack gap-5">' +
+            '<div class="chrome-min">' +
+              '<span class="t-cat">Scene · ' + page.title + '</span>' +
+              '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+            '</div>' +
+            '<h2 class="h-xl">' + page.title + '</h2>' +
+            '<div class="frame-img r-16x9">' +
+              '<img src="' + page.image + '" alt="场景图片">' +
+            '</div>' +
+            '<div class="stack gap-4" style="flex:1;">' +
+              itemsHtml +
+            '</div>' +
+            '<div class="issue-strip">' +
+              '<span>' + data.author + '</span>' +
+              '<span>' + (index + 1) + ' / ' + total + '</span>' +
+              '<span>' + page.title + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</section>';
+      }
+
+      // 没有图片，使用全宽布局，内容占满
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-6">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Scene · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="stack gap-4" style="flex:1;">' +
+            itemsHtml +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式4：引用（大引用+来源）
+    function renderXhsQuote(page, index, total, data) {
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack" style="justify-content:center;">' +
+          '<div class="chrome-min" style="position:absolute; top:0; left:0; right:0; padding:var(--sp-11) var(--sp-11) var(--sp-5);">' +
+            '<span class="t-cat">Quote · ' + (page.source || '引用') + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<div class="stack gap-8">' +
+            '<div class="quote-block">' +
+              '<p class="quote-text" style="font-size:48px; line-height:1.3;">「' + page.text + '」</p>' +
+              '<p class="quote-source">—— ' + (page.source || '核心观点') + '</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>引用</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式5：清单（要点列表+高亮）
+    function renderXhsChecklist(page, index, total, data) {
+      var itemsHtml = (page.items || []).map(function(item, i) {
+        var isLast = i === page.items.length - 1;
+        return '<div class="check-row" style="' + (isLast ? 'border-bottom:none;' : '') + '">' +
+          '<span class="idx">' + String(i + 1).padStart(2, '0') + '</span>' +
+          '<span class="item">' + item.item + '</span>' +
+        '</div>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Impact · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="stack gap-5" style="flex:1;">' + itemsHtml + '</div>' +
+          (page.highlight ? '<div class="accent-block" style="padding:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:24px; margin:0; color:var(--accent-on);">「' + page.highlight + '」</p></div>' : '') +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式6：对比（左右分栏）
+    function renderXhsCompare(page, index, total, data) {
+      var leftFeatures = (page.left.features || []).map(function(f) {
+        return '<p class="t-body-sm">✓ ' + f + '</p>';
+      }).join('');
+      var rightFeatures = (page.right.features || []).map(function(f) {
+        return '<p class="t-body-sm" style="color:var(--grey-2);">✓ ' + f + '</p>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Compare · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="col-2" style="flex:1;">' +
+            '<div class="stack gap-6" style="padding:var(--sp-7); border:2px solid var(--ink);">' +
+              '<p class="t-cat">' + page.left.cat + '</p>' +
+              '<h3 class="h-md">' + page.left.name + '</h3>' +
+              '<div class="rule-h"></div>' +
+              '<div class="stack gap-4">' + leftFeatures + '</div>' +
+            '</div>' +
+            '<div class="stack gap-6" style="padding:var(--sp-7); background:var(--ink); color:var(--paper);">' +
+              '<p class="t-cat" style="color:var(--accent);">' + page.right.cat + '</p>' +
+              '<h3 class="h-md">' + page.right.name + '</h3>' +
+              '<div class="rule-h" style="background:var(--grey-3);"></div>' +
+              '<div class="stack gap-4">' + rightFeatures + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<p class="t-body-sm">' + (page.note || '') + '</p>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式7：总结（结论+行动号召）
+    function renderXhsSummary(page, index, total, data) {
+      var conclusionsHtml = (page.conclusions || []).map(function(c, i) {
+        var isLast = i === page.conclusions.length - 1;
+        return '<div class="stack gap-4">' +
+          '<div class="row gap-5">' +
+            '<span class="num" style="font-size:48px; color:var(--accent);">' + c.num + '</span>' +
+            '<div>' +
+              '<h3 class="h-md">' + c.title + '</h3>' +
+              '<p class="t-body-sm">' + c.desc + '</p>' +
+            '</div>' +
+          '</div>' +
+        '</div>' + (isLast ? '' : '<div class="rule-h"></div>');
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Summary · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="stack gap-9" style="flex:1; justify-content:center;">' + conclusionsHtml + '</div>' +
+          (page.cta ? '<div class="accent-block" style="padding:var(--sp-6); margin-top:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:24px; margin:0; color:var(--accent-on);">' + page.cta + '</p></div>' : '') +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // ============================================================
+    // 主渲染函数
+    // ============================================================
+    function renderAllCards(data) {
+      var container = document.getElementById('cards-container');
+      var html = '';
+
+      // 渲染公众号封面
+      html += renderWechatWide(data);
+      html += renderWechatSquare(data);
+
+      // 渲染小红书轮播图
+      var xhsPages = data.xhs || [];
+      var total = xhsPages.length;
+
+      xhsPages.forEach(function(page, index) {
+        switch (page.type) {
+          case 'cover':
+            html += renderXhsCover(page, index, total, data);
+            break;
+          case 'data':
+            html += renderXhsData(page, index, total, data);
+            break;
+          case 'compare':
+            html += renderXhsCompare(page, index, total, data);
+            break;
+          case 'checklist':
+            html += renderXhsChecklist(page, index, total, data);
+            break;
+          case 'summary':
+            html += renderXhsSummary(page, index, total, data);
+            break;
+          case 'scene':
+            html += renderXhsScene(page, index, total, data);
+            break;
+          case 'quote':
+            html += renderXhsQuote(page, index, total, data);
+            break;
+          default:
+            html += renderXhsScene(page, index, total, data);
+        }
+      });
+
+      container.innerHTML = html;
+
+      // 初始化 Lucide 图标
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
+    // ============================================================
+    // 初始化
+    // ============================================================
+    loadDataFromUrl();
+    renderAllCards(CARD_DATA);
+  </script>
+</body>
+</html>

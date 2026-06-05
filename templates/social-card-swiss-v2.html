@@ -10,8 +10,8 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     /* =========================================================
-       Swiss International — Social Card Template
-       支持通过 JSON 数据动态填充内容
+       Swiss International — Social Card Template V2
+       支持多种版式，内容占满卡片
        ========================================================= */
 
     /* ---------- 1. Accent palettes ---------- */
@@ -148,149 +148,106 @@
       font-weight: 400;
       font-size: 56px;
       line-height: 1.18;
+      letter-spacing: 0;
       margin: 0;
-      color: var(--ink);
     }
     .h-md {
       font-family: var(--sans-zh);
       font-weight: 500;
-      font-size: 44px;
-      line-height: 1.22;
+      font-size: 36px;
+      line-height: 1.25;
       margin: 0;
-      color: var(--ink);
     }
     .t-cat {
       font-family: var(--mono);
       font-weight: 600;
       font-size: 18px;
-      letter-spacing: .12em;
+      letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--accent);
-      margin: 0;
     }
     .t-meta {
       font-family: var(--mono);
       font-weight: 500;
-      font-size: 16px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: .2em;
       color: var(--grey-3);
-      margin: 0;
     }
     .t-body {
       font-family: var(--sans-zh);
       font-weight: 400;
-      font-size: 24px;
-      line-height: 1.6;
+      font-size: 28px;
+      line-height: 1.65;
       color: var(--ink);
       margin: 0;
     }
     .t-body-sm {
       font-family: var(--sans-zh);
       font-weight: 400;
-      font-size: 20px;
+      font-size: 24px;
       line-height: 1.6;
-      color: var(--grey-3);
+      color: var(--ink);
+      margin: 0;
+    }
+    .t-body-lg {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 1.6;
+      color: var(--ink);
       margin: 0;
     }
     .num {
       font-family: var(--sans);
       font-weight: 200;
-      font-size: 112px;
-      line-height: .96;
-      letter-spacing: -.02em;
-      margin: 0;
-    }
-    .num-lg {
-      font-family: var(--sans);
-      font-weight: 200;
-      font-size: 144px;
-      line-height: .92;
-      letter-spacing: -.03em;
+      font-size: 64px;
+      line-height: 1;
       margin: 0;
     }
     .lbl {
       font-family: var(--mono);
       font-weight: 500;
-      font-size: 16px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: .15em;
       color: var(--grey-3);
       margin: 0;
     }
 
-    /* ---------- 8. Layout helpers ---------- */
+    /* ---------- 8. Layout primitives ---------- */
     .stack { display: flex; flex-direction: column; }
-    .row { display: flex; align-items: center; }
-    .row-between { display: flex; align-items: center; justify-content: space-between; }
-    .gap-3 { gap: var(--sp-3); }
-    .gap-4 { gap: var(--sp-4); }
-    .gap-5 { gap: var(--sp-5); }
-    .gap-6 { gap: var(--sp-6); }
-    .gap-7 { gap: var(--sp-7); }
-    .gap-8 { gap: var(--sp-8); }
-    .gap-9 { gap: var(--sp-9); }
-    .gap-10 { gap: var(--sp-10); }
-    .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-7); }
-    .col-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-7); }
-    .col-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+    .stack.gap-3 { gap: var(--sp-3); }
+    .stack.gap-4 { gap: var(--sp-4); }
+    .stack.gap-5 { gap: var(--sp-5); }
+    .stack.gap-6 { gap: var(--sp-6); }
+    .stack.gap-7 { gap: var(--sp-7); }
+    .stack.gap-8 { gap: var(--sp-8); }
+    .stack.gap-9 { gap: var(--sp-9); }
+    .stack.gap-10 { gap: var(--sp-10); }
 
-    /* ---------- 9. Chrome ---------- */
+    .row { display: flex; align-items: center; }
+    .row.gap-4 { gap: var(--sp-4); }
+    .row.gap-5 { gap: var(--sp-5); }
+    .row.gap-6 { gap: var(--sp-6); }
+
+    .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-7); }
+
+    .rule-h {
+      height: 1px;
+      background: var(--grey-2);
+      width: 100%;
+    }
+    .rule-v {
+      width: 1px;
+      background: var(--grey-2);
+      height: 100%;
+    }
+
     .chrome-min {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: var(--sp-5);
-      border-bottom: 1px solid var(--grey-2);
     }
 
-    /* ---------- 10. Accent block ---------- */
-    .accent-block {
-      background: var(--accent);
-      color: var(--accent-on);
-      padding: var(--sp-7);
-    }
-
-    /* ---------- 11. Stat block ---------- */
-    .stat-block {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-3);
-    }
-    .stat-block .num {
-      font-size: 56px;
-      color: var(--accent);
-    }
-
-    /* ---------- 12. Checklist rows ---------- */
-    .check-row {
-      display: grid;
-      grid-template-columns: 60px 1fr auto;
-      gap: var(--sp-5);
-      align-items: baseline;
-      padding: var(--sp-5) 0;
-      border-bottom: 1px solid var(--grey-2);
-    }
-    .check-row .idx {
-      font-family: var(--mono);
-      font-weight: 600;
-      font-size: 18px;
-      color: var(--accent);
-    }
-    .check-row .item {
-      font-family: var(--sans-zh);
-      font-weight: 500;
-      font-size: 24px;
-    }
-    .check-row .note {
-      font-family: var(--sans-zh);
-      font-weight: 400;
-      font-size: 16px;
-      color: var(--grey-3);
-      text-align: right;
-    }
-
-    /* ---------- 13. Issue strip ---------- */
     .issue-strip {
       position: absolute;
       bottom: var(--sp-11);
@@ -298,62 +255,201 @@
       right: var(--sp-11);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-family: var(--mono);
-      font-size: 14px;
+      font-size: 16px;
       color: var(--grey-3);
-      border-top: 1px solid var(--grey-2);
-      padding-top: var(--sp-4);
+      letter-spacing: .1em;
       z-index: 3;
     }
 
-    /* ---------- 14. Hairline rule ---------- */
-    .rule-h {
-      width: 100%;
-      height: 1px;
-      background: var(--grey-2);
-      margin: var(--sp-5) 0;
+    .accent-block {
+      background: var(--accent);
+      color: var(--accent-on);
+      padding: var(--sp-6) var(--sp-7);
     }
 
-    /* ---------- 15. Tag list ---------- */
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--sp-3);
-    }
     .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      background: var(--grey-1);
       font-family: var(--mono);
-      font-size: 13px;
-      padding: 6px 12px;
-      border: 1px solid var(--ink);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: .1em;
       color: var(--ink);
     }
+    .tag-list { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
 
-    /* ---------- 16. KPI Tower ---------- */
+    /* ---------- 9. Card fills ---------- */
+    .card-ink {
+      background: var(--ink);
+      color: var(--paper);
+      padding: var(--sp-7);
+    }
+    .card-accent {
+      background: var(--accent);
+      color: var(--accent-on);
+      padding: var(--sp-7);
+    }
+    .card-fill {
+      background: var(--grey-1);
+      color: var(--ink);
+      padding: var(--sp-7);
+    }
+    .card-outlined {
+      background: transparent;
+      border: 1px solid var(--grey-2);
+      color: var(--ink);
+      padding: var(--sp-7);
+    }
+
+    /* ---------- 10. Image containers ---------- */
+    .frame-img {
+      position: relative;
+      overflow: hidden;
+      background: var(--grey-1);
+    }
+    .frame-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .r-16x9 { aspect-ratio: 16 / 9; }
+    .r-3x4 { aspect-ratio: 3 / 4; }
+    .r-4x3 { aspect-ratio: 4 / 3; }
+    .r-1x1 { aspect-ratio: 1 / 1; }
+    .r-21x9 { aspect-ratio: 21 / 9; }
+
+    /* ---------- 11. Component: Check row ---------- */
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-5);
+      padding: var(--sp-5) 0;
+      border-bottom: 1px solid var(--grey-2);
+    }
+    .check-row .idx {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--accent);
+      min-width: 32px;
+    }
+    .check-row .item {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .check-row .note {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--grey-3);
+      min-width: 120px;
+      text-align: right;
+    }
+
+    /* ---------- 12. Component: Stat block ---------- */
+    .stat-block {
+      text-align: center;
+    }
+    .stat-block .num {
+      font-size: 72px;
+      color: var(--accent);
+    }
+    .stat-block .lbl {
+      margin-top: var(--sp-3);
+    }
+
+    /* ---------- 13. Component: KPI tower ---------- */
     .kpi-tower-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--sp-6);
-      margin-top: var(--sp-7);
+      display: flex;
+      align-items: flex-end;
+      gap: var(--sp-8);
     }
     .tower-col {
       display: flex;
       flex-direction: column;
-      gap: var(--sp-3);
+      align-items: center;
+      gap: var(--sp-4);
+      flex: 1;
     }
     .bar-tower {
       width: 100%;
-      height: 200px;
-      background: var(--grey-1);
-      position: relative;
-    }
-    .bar-tower::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: var(--h, 50%);
       background: var(--accent);
+      min-height: 20px;
+    }
+
+    /* ---------- 14. Component: Quote block ---------- */
+    .quote-block {
+      border-left: 4px solid var(--accent);
+      padding: var(--sp-6) var(--sp-7);
+      background: var(--grey-1);
+    }
+    .quote-block .quote-text {
+      font-family: var(--sans-zh);
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0;
+    }
+    .quote-block .quote-source {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--grey-3);
+      margin-top: var(--sp-4);
+    }
+
+    /* ---------- 15. Component: Full-bleed image ---------- */
+    .full-bleed {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .full-bleed img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .full-bleed .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .full-bleed .content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    /* ---------- 16. Component: Side image ---------- */
+    .side-image-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-7);
+      height: 100%;
+    }
+    .side-image-layout .text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--sp-6);
+    }
+    .side-image-layout .image-side {
+      position: relative;
+      overflow: hidden;
+    }
+    .side-image-layout .image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* ---------- 17. Pair preview ---------- */
@@ -363,6 +459,10 @@
       align-items: flex-end;
     }
   </style>
+
+    <script>
+      var CARD_DATA = {};
+    </script>
 </head>
 <body>
   <main class="sheet" id="cards-container">
@@ -370,11 +470,7 @@
   </main>
 
   <script>
-    // ============================================================
-    // 数据注入接口
-    // ============================================================
     // CARD_DATA 已在 <head> 中注入，直接使用
-    // 如需覆盖，可通过 URL 参数: ?data=base64encodedJSON
 
     // 从 URL 参数加载数据
     function loadDataFromUrl() {
@@ -392,21 +488,12 @@
     }
 
     // ============================================================
-    // 卡片渲染函数
+    // 渲染函数：公众号封面
     // ============================================================
-
     function renderWechatWide(data) {
       var statsHtml = (data.wechat.stats || []).map(function(s) {
         return '<div class="stat-block"><p class="num">' + s.num + '</p><p class="lbl">' + s.label + '</p></div>';
       }).join('<div class="rule-h"></div>');
-
-      var hasStats = data.wechat.stats && data.wechat.stats.length > 0;
-      var gridStyle = hasStats
-        ? 'display:grid; grid-template-columns:1.2fr 1fr; gap:var(--sp-10); flex:1; align-items:center;'
-        : 'display:flex; flex:1; align-items:center;';
-      var statsBlock = hasStats
-        ? '<div class="stack gap-8">' + statsHtml + '</div>'
-        : '';
 
       return '<section class="poster wide" id="wechat-21x9">' +
         '<div class="dot-mat"></div>' +
@@ -415,12 +502,12 @@
             '<span class="t-cat">' + data.category + '</span>' +
             '<span class="t-meta">' + data.date + '</span>' +
           '</div>' +
-          '<div style="' + gridStyle + '">' +
-            '<div class="stack gap-6" style="flex:1;">' +
+          '<div style="display:grid; grid-template-columns:1.2fr 1fr; gap:var(--sp-10); flex:1; align-items:center;">' +
+            '<div class="stack gap-6">' +
               '<h1 class="h-statement">' + data.wechat.headline + '</h1>' +
               '<p class="t-body" style="color:var(--grey-3)">' + data.wechat.subline + '</p>' +
             '</div>' +
-            statsBlock +
+            '<div class="stack gap-8">' + statsHtml + '</div>' +
           '</div>' +
           '<div class="issue-strip">' +
             '<span>' + data.author + '</span>' +
@@ -458,21 +545,34 @@
       '</section>';
     }
 
+    // ============================================================
+    // 渲染函数：小红书卡片（7种版式）
+    // ============================================================
+
+    // 版式1：封面（大标题+副标题+标签）
     function renderXhsCover(page, index, total, data) {
       var tagsHtml = (page.tags || []).map(function(t) {
         return '<span class="tag">' + t + '</span>';
       }).join('');
 
+      var imageHtml = '';
+      if (page.image) {
+        imageHtml = '<div class="frame-img r-16x9" style="margin-top:var(--sp-8);">' +
+          '<img src="' + page.image + '" alt="封面图片">' +
+        '</div>';
+      }
+
       return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
         '<div class="dot-mat"></div>' +
-        '<div class="content stack" style="justify-content:center;">' +
-          '<div class="chrome-min" style="position:absolute; top:0; left:0; right:0; padding:var(--sp-11) var(--sp-11) var(--sp-5);">' +
+        '<div class="content stack" style="justify-content:space-between;">' +
+          '<div class="chrome-min">' +
             '<span class="t-cat">' + data.category + '</span>' +
             '<span class="t-meta">' + data.date + '</span>' +
           '</div>' +
-          '<div class="stack gap-8" style="margin-top:var(--sp-8);">' +
+          '<div class="stack gap-7" style="flex:1; justify-content:center;">' +
             '<h1 class="h-statement">' + page.headline + '</h1>' +
-            '<p class="t-body" style="color:var(--grey-3)">' + page.subline + '</p>' +
+            '<p class="t-body-lg" style="color:var(--grey-3)">' + page.subline + '</p>' +
+            imageHtml +
             '<div class="tag-list" style="margin-top:var(--sp-5);">' + tagsHtml + '</div>' +
           '</div>' +
           '<div class="issue-strip">' +
@@ -484,6 +584,7 @@
       '</section>';
     }
 
+    // 版式2：数据展示（大数字+说明）
     function renderXhsData(page, index, total, data) {
       var statsHtml = (page.stats || []).map(function(s) {
         return '<div class="tower-col">' +
@@ -502,7 +603,7 @@
           '</div>' +
           '<h2 class="h-xl">' + page.title + '</h2>' +
           '<div class="kpi-tower-row" style="flex:1; align-items:end;">' + statsHtml + '</div>' +
-          '<p class="t-body-sm" style="margin-top:var(--sp-6);">' + (page.note || '') + '</p>' +
+          '<p class="t-body-sm">' + (page.note || '') + '</p>' +
           '<div class="issue-strip">' +
             '<span>' + data.author + '</span>' +
             '<span>' + (index + 1) + ' / ' + total + '</span>' +
@@ -512,6 +613,112 @@
       '</section>';
     }
 
+    // 版式3：场景（内容占满，stack 布局承载更多内容）
+    function renderXhsScene(page, index, total, data) {
+      var itemsHtml = (page.items || []).map(function(item, i) {
+        return '<p class="t-body" style="margin-bottom:var(--sp-5); line-height:1.7;">' + item + '</p>';
+      }).join('');
+
+      // 如果有图片，图片作为独立区域放在顶部
+      if (page.image) {
+        return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+          '<div class="dot-mat"></div>' +
+          '<div class="content stack gap-5">' +
+            '<div class="chrome-min">' +
+              '<span class="t-cat">Scene · ' + page.title + '</span>' +
+              '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+            '</div>' +
+            '<h2 class="h-xl">' + page.title + '</h2>' +
+            '<div class="frame-img r-16x9">' +
+              '<img src="' + page.image + '" alt="场景图片">' +
+            '</div>' +
+            '<div class="stack gap-4" style="flex:1;">' +
+              itemsHtml +
+            '</div>' +
+            '<div class="issue-strip">' +
+              '<span>' + data.author + '</span>' +
+              '<span>' + (index + 1) + ' / ' + total + '</span>' +
+              '<span>' + page.title + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</section>';
+      }
+
+      // 没有图片，使用全宽布局，内容占满
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-6">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Scene · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="stack gap-4" style="flex:1;">' +
+            itemsHtml +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式4：引用（大引用+来源）
+    function renderXhsQuote(page, index, total, data) {
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack" style="justify-content:center;">' +
+          '<div class="chrome-min" style="position:absolute; top:0; left:0; right:0; padding:var(--sp-11) var(--sp-11) var(--sp-5);">' +
+            '<span class="t-cat">Quote · ' + (page.source || '引用') + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<div class="stack gap-8">' +
+            '<div class="quote-block">' +
+              '<p class="quote-text" style="font-size:48px; line-height:1.3;">「' + page.text + '」</p>' +
+              '<p class="quote-source">—— ' + (page.source || '核心观点') + '</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>引用</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式5：清单（要点列表+高亮）
+    function renderXhsChecklist(page, index, total, data) {
+      var itemsHtml = (page.items || []).map(function(item, i) {
+        var isLast = i === page.items.length - 1;
+        return '<div class="check-row" style="' + (isLast ? 'border-bottom:none;' : '') + '">' +
+          '<span class="idx">' + String(i + 1).padStart(2, '0') + '</span>' +
+          '<span class="item">' + item.item + '</span>' +
+        '</div>';
+      }).join('');
+
+      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
+        '<div class="dot-mat"></div>' +
+        '<div class="content stack gap-7">' +
+          '<div class="chrome-min">' +
+            '<span class="t-cat">Impact · ' + page.title + '</span>' +
+            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
+          '</div>' +
+          '<h2 class="h-xl">' + page.title + '</h2>' +
+          '<div class="stack gap-5" style="flex:1;">' + itemsHtml + '</div>' +
+          (page.highlight ? '<div class="accent-block" style="padding:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:24px; margin:0; color:var(--accent-on);">「' + page.highlight + '」</p></div>' : '') +
+          '<div class="issue-strip">' +
+            '<span>' + data.author + '</span>' +
+            '<span>' + (index + 1) + ' / ' + total + '</span>' +
+            '<span>' + page.title + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+    }
+
+    // 版式6：对比（左右分栏）
     function renderXhsCompare(page, index, total, data) {
       var leftFeatures = (page.left.features || []).map(function(f) {
         return '<p class="t-body-sm">✓ ' + f + '</p>';
@@ -552,35 +759,7 @@
       '</section>';
     }
 
-    function renderXhsChecklist(page, index, total, data) {
-      var itemsHtml = (page.items || []).map(function(item, i) {
-        var isLast = i === page.items.length - 1;
-        return '<div class="check-row" style="' + (isLast ? 'border-bottom:none;' : '') + '">' +
-          '<span class="idx">' + String(i + 1).padStart(2, '0') + '</span>' +
-          '<span class="item">' + item.item + '</span>' +
-          '<span class="note">' + item.note + '</span>' +
-        '</div>';
-      }).join('');
-
-      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
-        '<div class="dot-mat"></div>' +
-        '<div class="content stack gap-7">' +
-          '<div class="chrome-min">' +
-            '<span class="t-cat">Impact · ' + page.title + '</span>' +
-            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
-          '</div>' +
-          '<h2 class="h-xl">' + page.title + '</h2>' +
-          '<div class="stack gap-5" style="flex:1;">' + itemsHtml + '</div>' +
-          (page.highlight ? '<div class="accent-block" style="padding:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:20px; margin:0; color:var(--accent-on);">' + page.highlight + '</p></div>' : '') +
-          '<div class="issue-strip">' +
-            '<span>' + data.author + '</span>' +
-            '<span>' + (index + 1) + ' / ' + total + '</span>' +
-            '<span>' + page.title + '</span>' +
-          '</div>' +
-        '</div>' +
-      '</section>';
-    }
-
+    // 版式7：总结（结论+行动号召）
     function renderXhsSummary(page, index, total, data) {
       var conclusionsHtml = (page.conclusions || []).map(function(c, i) {
         var isLast = i === page.conclusions.length - 1;
@@ -604,95 +783,11 @@
           '</div>' +
           '<h2 class="h-xl">' + page.title + '</h2>' +
           '<div class="stack gap-9" style="flex:1; justify-content:center;">' + conclusionsHtml + '</div>' +
-          (page.cta ? '<div class="accent-block" style="padding:var(--sp-6); margin-top:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:20px; margin:0; color:var(--accent-on);">' + page.cta + '</p></div>' : '') +
+          (page.cta ? '<div class="accent-block" style="padding:var(--sp-6); margin-top:var(--sp-6);"><p style="font-family:var(--sans-zh); font-size:24px; margin:0; color:var(--accent-on);">' + page.cta + '</p></div>' : '') +
           '<div class="issue-strip">' +
             '<span>' + data.author + '</span>' +
             '<span>' + (index + 1) + ' / ' + total + '</span>' +
             '<span>' + page.title + '</span>' +
-          '</div>' +
-        '</div>' +
-      '</section>';
-    }
-
-    // ============================================================
-    // 新增渲染函数：场景页、引用页、图片页
-    // ============================================================
-
-    function renderXhsScene(page, index, total, data) {
-      var itemsHtml = (page.items || []).map(function(item, i) {
-        return '<p class="t-body">' + item + '</p>';
-      }).join('');
-
-      var imageHtml = '';
-      if (page.image) {
-        imageHtml = '<div class="frame-img r-3x4" style="margin-top:var(--sp-6);">' +
-          '<img src="' + page.image + '" alt="场景图片" style="width:100%; height:100%; object-fit:cover;">' +
-        '</div>';
-      }
-
-      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
-        '<div class="dot-mat"></div>' +
-        '<div class="content stack gap-7">' +
-          '<div class="chrome-min">' +
-            '<span class="t-cat">Scene · ' + page.title + '</span>' +
-            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
-          '</div>' +
-          '<h2 class="h-xl">' + page.title + '</h2>' +
-          '<div class="stack gap-5" style="flex:1;">' + itemsHtml + '</div>' +
-          imageHtml +
-          '<p class="t-body-sm">' + (page.note || '') + '</p>' +
-          '<div class="issue-strip">' +
-            '<span>' + data.author + '</span>' +
-            '<span>' + (index + 1) + ' / ' + total + '</span>' +
-            '<span>' + page.title + '</span>' +
-          '</div>' +
-        '</div>' +
-      '</section>';
-    }
-
-    function renderXhsQuote(page, index, total, data) {
-      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
-        '<div class="dot-mat"></div>' +
-        '<div class="content stack gap-7" style="justify-content:center;">' +
-          '<div class="chrome-min" style="position:absolute; top:0; left:0; right:0; padding:var(--sp-11) var(--sp-11) var(--sp-5);">' +
-            '<span class="t-cat">Quote · ' + (page.source || '引用') + '</span>' +
-            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
-          '</div>' +
-          '<div class="stack gap-8" style="margin-top:var(--sp-8);">' +
-            '<div class="accent-block" style="padding:var(--sp-8) var(--sp-7);">' +
-              '<h1 class="h-statement" style="color:var(--accent-on); font-size:72px; line-height:1.2;">「' + page.text + '」</h1>' +
-            '</div>' +
-            '<p class="t-body" style="color:var(--grey-3); text-align:right;">—— ' + (page.source || '核心观点') + '</p>' +
-          '</div>' +
-          '<div class="issue-strip">' +
-            '<span>' + data.author + '</span>' +
-            '<span>' + (index + 1) + ' / ' + total + '</span>' +
-            '<span>引用</span>' +
-          '</div>' +
-        '</div>' +
-      '</section>';
-    }
-
-    function renderXhsImage(page, index, total, data) {
-      var imageHtml = '';
-      if (page.image) {
-        imageHtml = '<div class="frame-img r-3x4" style="flex:1;">' +
-          '<img src="' + page.image + '" alt="图片" style="width:100%; height:100%; object-fit:cover;">' +
-        '</div>';
-      }
-
-      return '<section class="poster xhs" id="xhs-0' + (index + 1) + '">' +
-        '<div class="dot-mat"></div>' +
-        '<div class="content stack gap-7">' +
-          '<div class="chrome-min">' +
-            '<span class="t-cat">Image · ' + (page.title || '图片') + '</span>' +
-            '<span class="t-meta">' + (index + 1) + ' / ' + total + '</span>' +
-          '</div>' +
-          imageHtml +
-          '<div class="issue-strip">' +
-            '<span>' + data.author + '</span>' +
-            '<span>' + (index + 1) + ' / ' + total + '</span>' +
-            '<span>图片</span>' +
           '</div>' +
         '</div>' +
       '</section>';
@@ -736,11 +831,8 @@
           case 'quote':
             html += renderXhsQuote(page, index, total, data);
             break;
-          case 'image':
-            html += renderXhsImage(page, index, total, data);
-            break;
           default:
-            html += renderXhsCover(page, index, total, data);
+            html += renderXhsScene(page, index, total, data);
         }
       });
 

@@ -134,8 +134,8 @@ def render_social_cards(html_file: str, output_dir: str = None, auto_detect: boo
             page = context.new_page()
 
             # 加载 HTML
-            page.goto(f"file:///{html_path.as_posix()}")
-            page.wait_for_timeout(1500)  # 等待字体加载
+            page.goto(f"file:///{html_path.as_posix()}", timeout=60000)
+            page.wait_for_timeout(2000)  # 等待字体加载
 
             # 查找目标元素
             element = page.query_selector(f"#{card['id']}")

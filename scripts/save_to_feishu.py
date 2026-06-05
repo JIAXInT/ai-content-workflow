@@ -32,9 +32,12 @@ def run_command(cmd, check=True):
             errors='replace',  # 替换无法解码的字符
             check=check
         )
-        return result.stdout, result.stderr, result.returncode
+        # 检查命令是否成功执行（返回码为 0 或者输出中包含 "ok": true）
+        success = result.returncode == 0 or '"ok": true' in result.stdout
+        return result.stdout, result.stderr, 0 if success else result.returncode
     except subprocess.CalledProcessError as e:
-        return e.stdout, e.stderr, e.returncode
+        success = e.returncode == 0 or '"ok": true' in (e.stdout or '')
+        return e.stdout, e.stderr, 0 if success else e.returncode
 
 
 def parse_frontmatter(content):
@@ -62,18 +65,29 @@ def generate_cover(title, tag, date, subtitle):
     stdout, stderr, returncode = run_command(cmd, check=False)
 
     if returncode != 0:
-        print(f"生成封面 HTML 失败: {stderr}")
+        print(f"生成封面 HTML 失败: {stderr[:100] if stderr else 'unknown error'}")
         return None
+
+    print("封面 HTML 生成成功")
 
     # 使用 screenshot.py 截图
     cmd = 'python scripts/screenshot.py'
     stdout, stderr, returncode = run_command(cmd, check=False)
 
     if returncode != 0:
-        print(f"截图失败: {stderr}")
+        print(f"截图失败: {stderr[:100] if stderr else 'unknown error'}")
         return None
 
-    return Path("covers/cover-main.png")
+    print("截图完成")
+
+    # 检查封面图是否存在
+    cover_path = Path("covers/cover-main.png")
+    if cover_path.exists():
+        print(f"封面图生成成功: {cover_path}")
+        return cover_path
+    else:
+        print(f"封面图文件不存在: {cover_path}")
+        return None
 
 
 def extract_urls_from_article(article_file):
@@ -581,23 +595,39 @@ def save_article_to_feishu(article_file, generate_cover_flag=True, image_mode="s
     if article_images:
         body_content = insert_images_to_content(body_content, article_images)
 
-    # 如果已有飞书文档链接，直接创建新文档（避免更新超时）
+    # 如果已有飞书文档链接，更新现有文档
     if feishu_url:
-        print(f"文档已存在，将创建新文档")
+        print(f"文档已存在，将更新现有文档: {feishu_url}")
+        doc_result = {"url": feishu_url, "id": feishu_url.split("/")[-1]}
 
-    # 创建新文档（先创建带标题的空文档，然后按顺序插入内容）
-    # 先创建一个带标题的空文档
-    empty_content = f"<title>{title}</title><p> </p>"
-    doc_result = create_feishu_doc(title, empty_content, FEISHU_FOLDER_TOKEN)
-    if not doc_result:
-        return None
+        # 更新文档标题（使用 <title> HTML 标签，因为 --new-title 参数不起作用）
+        if title:
+            escaped_title = title.replace('"', '\\"')
+            # 使用 <title> HTML 标签来设置标题
+            title_content = f'<title>{escaped_title}</title><p> </p>'
+            temp_title_file = Path("temp_title.md")
+            temp_title_file.write_text(title_content, encoding="utf-8")
+            cmd = f'npx @larksuite/cli docs +update --api-version v2 --doc "{feishu_url}" --command overwrite --content @temp_title.md --as bot'
+            stdout, stderr, returncode = run_command(cmd, check=False)
+            temp_title_file.unlink(missing_ok=True)
+            if returncode != 0:
+                print(f"更新标题失败: {stderr[:200] if stderr else 'unknown error'}")
+            else:
+                print("标题更新成功")
+    else:
+        # 创建新文档 - 只使用 --title 参数设置标题，content 不包含 <title> 标签
+        # 使用空的段落内容，后续会追加实际文章内容
+        empty_content = "<p> </p>"
+        doc_result = create_feishu_doc(title, empty_content, FEISHU_FOLDER_TOKEN)
+        if not doc_result:
+            return None
 
-    print(f"文档创建成功: {doc_result['url']}")
+        print(f"文档创建成功: {doc_result['url']}")
 
     # 插入封面图到文档开头
     if cover_path:
         print("正在插入封面图...")
-        if insert_media_to_doc(doc_result["url"], cover_path, insert_at_top=False):
+        if insert_media_to_doc(doc_result["url"], cover_path, insert_at_top=True):
             print("封面图插入成功")
 
     # 处理文章内容：去掉开头的封面图和 H1 标题（因为标题已经设置为文档标题）
@@ -618,9 +648,11 @@ def save_article_to_feishu(article_file, generate_cover_flag=True, image_mode="s
         content_parts = [body_content_clean]
 
     # 交替追加内容和插图
+    # 追加文章正文内容
+    print("正在追加文章正文内容...")
     for i, part in enumerate(content_parts):
         # 追加内容
-        print(f"正在追加第 {i + 1} 部分内容...")
+        print(f"正在追加第 {i + 1}/{len(content_parts)} 部分内容...")
         temp_file = Path("temp_article_content.md")
         temp_file.write_text(part, encoding="utf-8")
 
@@ -629,7 +661,7 @@ def save_article_to_feishu(article_file, generate_cover_flag=True, image_mode="s
         temp_file.unlink(missing_ok=True)
 
         if returncode != 0:
-            print(f"追加第 {i + 1} 部分内容失败: {stderr}")
+            print(f"追加第 {i + 1} 部分内容失败: {stderr[:100] if stderr else 'unknown error'}")
             continue
 
         # 插入插图（如果有）

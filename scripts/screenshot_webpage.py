@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
+from PIL import Image
 from playwright.sync_api import sync_playwright
 
 
@@ -20,15 +21,9 @@ PLATFORM_CONFIGS = {
         "name": "Twitter/X",
         "domains": ["twitter.com", "x.com"],
         "selectors": [
-            'article[data-testid="tweet"]',  # 推文卡片
-            '[data-testid="tweetText"]',      # 推文文本
-            'div[role="article"]',            # 文章角色
-            '[data-testid="cellInnerDiv"]',   # 单元格内部
-            'div[data-testid="tweet"]',       # 推文容器
-            'div[class*="tweet"]',            # 推文类名
-            'div[class*="Tweet"]',            # 推文类名（大写）
+            'article[data-testid="tweet"]',  # 推文卡片（只包含推文内容）
         ],
-        "wait_time": 10000,  # 等待 10 秒加载动态内容
+        "wait_time": 15000,  # 等待 15 秒加载动态内容和图片
         "wait_for_selector": 'article[data-testid="tweet"]',  # 等待推文元素出现
         "wait_for_load_state": "networkidle",  # 等待网络空闲
         "viewport": {"width": 1280, "height": 900},
@@ -235,11 +230,19 @@ def screenshot_url(
                     # 多次滚动以触发懒加载
                     for i in range(3):
                         page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                        page.wait_for_timeout(1500)
+                        page.wait_for_timeout(2000)
                         # 滚动回顶部
                         page.evaluate("window.scrollTo(0, 0)")
-                        page.wait_for_timeout(500)
+                        page.wait_for_timeout(1000)
                     print("已多次滚动页面触发内容加载")
+
+                    # 等待所有图片加载完成
+                    try:
+                        page.wait_for_load_state("networkidle", timeout=10000)
+                    except:
+                        pass
+                    page.wait_for_timeout(3000)  # 额外等待 3 秒确保图片渲染完成
+                    print("已等待图片加载完成")
                 except Exception as e:
                     print(f"滚动页面失败: {e}")
 
@@ -345,6 +348,38 @@ def screenshot_url(
                     page.screenshot(path=str(target_path))
 
             print(f"截图已保存: {target_path}")
+
+            # 后处理图片
+            try:
+                img = Image.open(target_path)
+
+                # 对于 X/Twitter 平台，裁剪掉底部互动栏
+                if "twitter" in platform.get("name", "").lower():
+                    # 推文卡片底部通常有互动栏，需要裁剪掉
+                    # 计算裁剪区域：保留文字和配图部分
+                    width, height = img.size
+                    # 裁剪掉底部 18%（互动栏区域）
+                    crop_height = int(height * 0.82)
+                    if crop_height > 100:  # 确保裁剪后还有内容
+                        img = img.crop((0, 0, width, crop_height))
+                        print(f"X 平台裁剪: {width}x{height} -> {width}x{crop_height}")
+
+                # 缩放图片到合适的尺寸（飞书文档推荐宽度 1200px）
+                # 注意：只在宽度超过 1200 时才缩放，避免不必要的缩放
+                target_width = 1200
+                if img.width > target_width:
+                    ratio = target_width / img.width
+                    new_height = int(img.height * ratio)
+                    img = img.resize((target_width, new_height), Image.LANCZOS)
+                    print(f"图片已缩放: {img.size}")
+                else:
+                    print(f"图片宽度 {img.width} <= {target_width}，无需缩放")
+
+                img.save(target_path, quality=95)
+                print(f"最终尺寸: {img.size}")
+            except Exception as e:
+                print(f"处理图片失败: {e}")
+
             return target_path
 
         except Exception as e:
